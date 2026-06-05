@@ -2,16 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Form Submission Handling (Web3Forms AJAX)
     const leadForm = document.getElementById('leadCaptureForm');
     const formSuccess = document.getElementById('formSuccess');
-    const submitBtn = document.querySelector('.submit-btn');
 
     if (leadForm) {
         leadForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            
             // Change button text to show loading
-            const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = "Sending...";
-            submitBtn.disabled = true;
+            const originalBtnText = submitBtn ? submitBtn.innerText : "Book Consultation";
+            if (submitBtn) {
+                submitBtn.innerText = "Sending...";
+                submitBtn.disabled = true;
+            }
 
             const formData = new FormData(leadForm);
             
@@ -27,15 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     console.error(response);
                     alert("Something went wrong! Please try calling us instead.");
-                    submitBtn.innerText = originalBtnText;
-                    submitBtn.disabled = false;
+                    if (submitBtn) {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
                 }
             })
             .catch(error => {
                 console.error(error);
                 alert("Something went wrong! Please try calling us instead.");
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
+                if (submitBtn) {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                }
             });
         });
     }
