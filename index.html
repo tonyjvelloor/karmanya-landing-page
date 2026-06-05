@@ -66,11 +66,23 @@
                                     <option value="evening">Evening (4 PM - 7 PM)</option>
                                 </select>
                             </div>
-                            <button type="submit" class="submit-btn">Request Callback Now</button>
+                            <div class="form-group mb-3 text-left">
+                                <select name="concern" class="form-control" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem;" required>
+                                    <option value="" disabled selected>Select Primary Concern</option>
+                                    <option value="Knee/Joint Pain">Knee/Joint Pain</option>
+                                    <option value="Back/Neck Pain">Back/Neck Pain</option>
+                                    <option value="Panchakarma">Panchakarma Inquiry</option>
+                                    <option value="General Consultation">General Consultation</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="cta-button primary-btn" style="width: 100%; border: none; cursor: pointer;">Book Consultation (₹499)</button>
                             <p class="form-disclaimer">Your information is secure and confidential.</p>
                         </form>
-                        <div id="formSuccess" class="form-success hidden">
-                            <p>Thank you! Your request has been received. Our team will contact you shortly.</p>
+                        <div id="formSuccess" class="hidden mt-3" style="color: green; font-weight: 500;">
+                            Thank you! Redirecting...
+                        </div>
+                        <div class="trust-badge mt-3" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #4b5563; font-size: 0.9rem; font-weight: 500;">
+                            <span style="color: #fbbc05; font-size: 1.2rem;">★★★★★</span> 4.8/5 Stars on Google
                         </div>
                         
                         <div class="trust-strip mt-4">
@@ -134,7 +146,7 @@
             </div>
         </section>
 
-        <!-- 3. Empathy & Alignment Section -->
+
         <section class="empathy section-padding bg-cream">
             <div class="container text-center reveal">
                 <h2 class="section-title text-primary large-title">Living With <span class="text-gold">Constant Joint Pain?</span></h2>
@@ -241,9 +253,12 @@
             <div class="container">
                 <div class="text-center reveal">
                     <h2 class="section-title">Trusted by the Pimpri-Chinchwad Community</h2>
+                    <div class="trust-badge mt-2 mb-4" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; color: #222; font-size: 1rem; font-weight: 600; background: #fff; padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid #EAE6DF; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                        <span style="color: #fbbc05; font-size: 1.3rem;">★★★★★</span> 4.8/5 Average Rating on Google
+                    </div>
                 </div>
                 
-                <div class="grid-2 mt-4">
+                <div class="grid-2 mt-2">
                     <div class="testimonial reveal">
                         <div class="stars">★★★★★</div>
                         <p>"The doctor patiently understood my concerns and explained the Ayurveda approach clearly. The clinic atmosphere is very peaceful and professional."</p>
@@ -390,7 +405,7 @@
 
     <!-- Mobile Bottom Bar -->
     <div class="mobile-bottom-bar mobile-only">
-        <a href="https://wa.me/919819820017" class="bar-btn whatsapp">💬 WhatsApp Consultation</a>
+        <a href="https://wa.me/919819820017" class="bar-btn whatsapp">💬 WhatsApp</a>
         <a href="tel:+919819820017" class="bar-btn call">📞 Call Now</a>
     </div>
 
