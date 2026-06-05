@@ -23,8 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let json = await response.json();
                 if (response.status == 200) {
                     leadForm.reset();
-                    leadForm.style.display = 'none';
-                    formSuccess.classList.remove('hidden');
+                    window.location.href = 'thank-you.html';
                 } else {
                     console.error(response);
                     alert("Something went wrong! Please try calling us instead.");

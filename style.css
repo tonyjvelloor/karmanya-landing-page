@@ -656,6 +656,26 @@ a {
 .feature-list li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 1.05rem; color: #4b5563; line-height: 1.5; }
 .feature-list .icon { color: var(--primary-color); font-weight: bold; background: rgba(26, 77, 46, 0.1); width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px; }
 
+/* Journey Steps */
+.journey-step {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    border-top: 4px solid var(--primary-color);
+    text-align: center;
+}
+.step-icon {
+    width: 50px; height: 50px;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    font-size: 1.5rem; font-weight: bold; font-family: var(--font-heading);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; margin: 0 auto 1.5rem;
+}
+.journey-step h4 { color: var(--primary-color); margin-bottom: 0.5rem; }
+.journey-step p { color: #4b5563; font-size: 0.95rem; margin: 0; }
+
 /* FAQ Section */
 .faq-container { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
 .faq-item { background: white; border-radius: 8px; border: 1px solid #EAE6DF; overflow: hidden; }
