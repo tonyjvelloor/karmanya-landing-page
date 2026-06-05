@@ -416,6 +416,14 @@ a {
     align-items: center;
 }
 
+.expert-grid.reverse .expert-image {
+    order: 2;
+}
+
+.expert-grid.reverse .expert-content {
+    order: 1;
+}
+
 .expert-image {
     width: 100%;
 }
@@ -720,6 +728,11 @@ a {
     .expert-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+    
+    .expert-grid.reverse .expert-image,
+    .expert-grid.reverse .expert-content {
+        order: unset;
     }
     
     .image-wrapper {
