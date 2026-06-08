@@ -64,8 +64,15 @@
                 <div class="hero-content reveal">
                     <p class="pre-headline">Karmanya Ayurveda Chikitsalaya | Pimple Saudagar</p>
                     <h1 class="main-headline">Get Lasting Relief from Knee & Joint Pain with Authentic Ayurveda.</h1>
-                    <p class="sub-headline">Manage chronic joint discomfort, improve mobility, and find relief through authentic, personalized Ayurvedic therapies.</p>
-                    <a href="#booking" class="cta-button primary-btn">Book Your Expert Consultation</a>
+                    <p class="sub-headline">Manage chronic joint discomfort and find relief through authentic, personalized Ayurvedic therapies right here in Pimple Saudagar.</p>
+                    
+                    <div class="hero-trust-badges mt-3" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: flex-start; color: #4b5563; font-size: 0.95rem; font-weight: 500;">
+                        <span style="background: rgba(255,255,255,0.8); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid #EAE6DF; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">⭐ 4.8/5 on Google</span>
+                        <span style="background: rgba(255,255,255,0.8); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid #EAE6DF; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">🌿 Authentic Care</span>
+                        <span style="background: rgba(255,255,255,0.8); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid #EAE6DF; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">👨‍⚕️ Expert Vaidyas</span>
+                    </div>
+
+                    <a href="#booking" class="cta-button primary-btn mt-4" style="display: inline-block;">Book Your Expert Consultation</a>
                 </div>
                 <div class="hero-form-wrapper reveal" id="booking">
                     <div class="glass-form">
@@ -77,25 +84,9 @@
                             <input type="hidden" name="subject" value="New Lead: Karmanya Landing Page">
                             <input type="hidden" name="from_name" value="Karmanya Landing Page">
                             
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required placeholder="Enter your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-                            </div>
-                            <div class="form-group">
-                                <label for="time">Preferred Time to Call</label>
-                                <select id="time" name="time" required>
-                                    <option value="" disabled selected>Select a time</option>
-                                    <option value="morning">Morning (9 AM - 12 PM)</option>
-                                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                                    <option value="evening">Evening (4 PM - 7 PM)</option>
-                                </select>
-                            </div>
                             <div class="form-group mb-3 text-left">
-                                <select name="concern" class="form-control" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem;" required>
+                                <label for="concern" style="font-weight: 600; color: var(--primary-color);">What is your primary concern?</label>
+                                <select id="concern" name="concern" class="form-control" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem;" required>
                                     <option value="" disabled selected>Select Primary Concern</option>
                                     <option value="Knee/Joint Pain">Knee/Joint Pain</option>
                                     <option value="Back/Neck Pain">Back/Neck Pain</option>
@@ -103,25 +94,26 @@
                                     <option value="General Consultation">General Consultation</option>
                                 </select>
                             </div>
-                            <div class="form-group mb-3 text-left" style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                <input type="checkbox" id="consent" name="consent" required style="margin-top: 0.3rem;">
-                                <label for="consent" style="font-size: 0.85rem; line-height: 1.4; color: #4b5563; font-weight: normal; margin-bottom: 0;">I agree to the <a href="privacy.html" target="_blank" style="color: var(--primary-color);">Privacy Policy</a> and consent to be contacted via phone or WhatsApp regarding my inquiry.</label>
+
+                            <div id="extended-form-fields" style="display: none; opacity: 0; transition: opacity 0.3s ease;">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                                </div>
+                                <div class="form-group mb-3 text-left" style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                    <input type="checkbox" id="consent" name="consent" required style="margin-top: 0.3rem;">
+                                    <label for="consent" style="font-size: 0.85rem; line-height: 1.4; color: #4b5563; font-weight: normal; margin-bottom: 0;">I agree to the <a href="privacy.html" target="_blank" style="color: var(--primary-color);">Privacy Policy</a> and consent to be contacted via phone or WhatsApp regarding my inquiry.</label>
+                                </div>
+                                <button type="submit" class="cta-button primary-btn" style="width: 100%; border: none; cursor: pointer;">Book Your Pimple Saudagar Consultation</button>
+                                <p class="form-disclaimer">Your information is secure and confidential.</p>
                             </div>
-                            <button type="submit" class="cta-button primary-btn" style="width: 100%; border: none; cursor: pointer;">Check Doctor Availability</button>
-                            <p class="form-disclaimer">Your information is secure and confidential.</p>
                         </form>
                         <div id="formSuccess" class="hidden mt-3" style="color: green; font-weight: 500;">
                             Thank you! Redirecting...
-                        </div>
-                        <div class="trust-badge mt-3" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #4b5563; font-size: 0.9rem; font-weight: 500;">
-                            <span style="color: #fbbc05; font-size: 1.2rem;">★★★★★</span> 4.8/5 Stars on Google
-                        </div>
-                        
-                        <div class="trust-strip mt-4">
-                            <div class="trust-item"><span class="trust-icon">🌿</span><p>Authentic Ayurveda Approach</p></div>
-                            <div class="trust-item"><span class="trust-icon">👨‍⚕️</span><p>Experienced Practitioners</p></div>
-                            <div class="trust-item"><span class="trust-icon">🔒</span><p>Your Details Stay Private</p></div>
-                            <div class="trust-item"><span class="trust-icon">📍</span><p>Visit Our Pimple Saudagar Clinic</p></div>
                         </div>
                     </div>
                 </div>
@@ -244,8 +236,9 @@
                             </div>
                             <p>Specialized knee therapy where warm medicated oil is retained over the knee to nourish the joint, reduce pain and improve flexibility.</p>
                         </div>
-                        <div class="solution-footer">
+                        <div class="solution-footer" style="display: flex; flex-direction: column; gap: 1rem;">
                             <span class="pill-badge">Relieves Pain • Lubricates Joints • Improves Mobility</span>
+                            <a href="#booking" class="cta-button primary-btn micro-convert-btn" data-concern="Panchakarma Inquiry" style="padding: 0.6rem 1rem; font-size: 0.9rem;">Inquire About Janu Basti</a>
                         </div>
                     </div>
                     <div class="solution-card reveal delay-1">
@@ -259,8 +252,9 @@
                             </div>
                             <p>Herbal leaf bolus therapy that uses the goodness of medicated leaves and herbs to reduce inflammation, relieve stiffness and rejuvenate muscles.</p>
                         </div>
-                        <div class="solution-footer">
+                        <div class="solution-footer" style="display: flex; flex-direction: column; gap: 1rem;">
                             <span class="pill-badge">Reduces Stiffness • Improves Circulation • Detoxifies</span>
+                            <a href="#booking" class="cta-button primary-btn micro-convert-btn" data-concern="Panchakarma Inquiry" style="padding: 0.6rem 1rem; font-size: 0.9rem;">Inquire About Pinda Sweda</a>
                         </div>
                     </div>
                     <div class="solution-card reveal delay-2">
@@ -274,8 +268,9 @@
                             </div>
                             <p>Every individual is unique. We create customized treatment and diet plans based on your body constitution and health goals.</p>
                         </div>
-                        <div class="solution-footer">
+                        <div class="solution-footer" style="display: flex; flex-direction: column; gap: 1rem;">
                             <span class="pill-badge">Personalized • Sustainable • Long-term Wellness</span>
+                            <a href="#booking" class="cta-button primary-btn micro-convert-btn" data-concern="General Consultation" style="padding: 0.6rem 1rem; font-size: 0.9rem;">Get a Personalized Plan</a>
                         </div>
                     </div>
                 </div>
@@ -442,9 +437,11 @@
     </footer>
 
     <!-- Mobile Bottom Bar -->
-    <div class="mobile-bottom-bar mobile-only">
-        <a href="https://wa.me/919819820017" class="bar-btn whatsapp">💬 WhatsApp</a>
-        <a href="tel:+919819820017" class="bar-btn call">📞 Call Now</a>
+    <div class="mobile-bottom-bar mobile-only" style="display: flex; gap: 0.5rem; padding: 0.5rem; justify-content: space-between;">
+        <a href="https://wa.me/919819820017" class="bar-btn whatsapp" style="flex: 0 0 auto; width: 3rem; border-radius: 4px; padding: 0; display: flex; align-items: center; justify-content: center;" title="WhatsApp Us">
+            <span style="font-size: 1.5rem; line-height: 1;">💬</span>
+        </a>
+        <a href="#booking" class="bar-btn" style="flex: 1; background: var(--primary-color); color: white; border-radius: 4px; font-weight: 600;">Book Consultation</a>
     </div>
 
     <!-- Scroll Exit Popup -->

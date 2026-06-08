@@ -47,6 +47,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 1.5 Multi-Step Form Logic
+    const concernDropdown = document.getElementById('concern');
+    const extendedFields = document.getElementById('extended-form-fields');
+
+    if (concernDropdown && extendedFields) {
+        concernDropdown.addEventListener('change', () => {
+            if (concernDropdown.value !== "") {
+                extendedFields.style.display = 'block';
+                // Small delay to allow display:block to apply before animating opacity
+                setTimeout(() => {
+                    extendedFields.style.opacity = '1';
+                }, 10);
+            }
+        });
+    }
+
+    // 1.6 Micro-Conversion Buttons (Therapies)
+    const microButtons = document.querySelectorAll('.micro-convert-btn');
+    microButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Let the smooth scroll logic handle the jump, but we need to update the form
+            if (concernDropdown && extendedFields) {
+                const concernVal = btn.getAttribute('data-concern');
+                concernDropdown.value = concernVal;
+                
+                // Trigger the change event manually to expand the form
+                const event = new Event('change');
+                concernDropdown.dispatchEvent(event);
+            }
+        });
+    });
+
     // 2. Scroll Reveal Animations (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
 
