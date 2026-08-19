@@ -125,9 +125,9 @@ a {
     text-decoration: none;
 }
 .logo img { 
-    height: 55px; /* Slightly larger for better readability */
+    height: 120px; /* Increased significantly to counteract internal whitespace */
     width: auto; 
-    max-width: 250px;
+    max-width: 350px;
     object-fit: contain;
 }
 
