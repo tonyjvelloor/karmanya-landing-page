@@ -123,12 +123,15 @@ a {
     display: flex; 
     align-items: center; 
     text-decoration: none;
+    height: 60px; /* Constrain header height */
 }
 .logo img { 
-    height: 120px; /* Increased significantly to counteract internal whitespace */
+    height: 60px; 
     width: auto; 
-    max-width: 350px;
+    max-width: 250px;
     object-fit: contain;
+    transform: scale(2.2); /* Magnify image to counteract internal whitespace */
+    transform-origin: left center;
 }
 
 /* Header Updates */
