@@ -73,15 +73,15 @@
                         <h3>Book Your Consultation Today</h3>
                         <p class="form-sub" style="margin-bottom: 1.5rem;">Fill out the form below or contact us directly to get personalized guidance for your joint concerns.</p>
                         
-                        <form action="thank-you.html" method="GET" class="lead-form mb-4" style="text-align: left;">
+                        <form id="leadForm" action="thank-you.html" method="GET" class="lead-form mb-4" style="text-align: left;">
                             <div style="margin-bottom: 1rem;">
-                                <input type="text" placeholder="Full Name" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;">
+                                <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;">
                             </div>
                             <div style="margin-bottom: 1rem;">
-                                <input type="tel" placeholder="Mobile Number" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;">
+                                <input type="tel" name="phone" placeholder="Mobile Number" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;">
                             </div>
                             <div style="margin-bottom: 1rem;">
-                                <select required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;">
+                                <select name="concern" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;">
                                     <option value="" disabled selected>Primary Concern</option>
                                     <option value="knee">Knee / Joint Pain</option>
                                     <option value="back">Back Pain / Sciatica</option>
@@ -89,7 +89,7 @@
                                     <option value="other">Other</option>
                                 </select>
                             </div>
-                            <button type="submit" class="cta-button primary-btn" style="width: 100%; padding: 1rem; border-radius: 8px; border: none; font-weight: bold; cursor: pointer;">Request Callback</button>
+                            <button type="submit" id="submitBtn" class="cta-button primary-btn" style="width: 100%; padding: 1rem; border-radius: 8px; border: none; font-weight: bold; cursor: pointer;">Request Callback</button>
                         </form>
                         <div style="display: flex; align-items: center; justify-content: center; margin: 1rem 0; color: #888; font-size: 0.9rem;">
                             <hr style="flex-grow: 1; border: none; border-top: 1px solid #eee;">

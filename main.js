@@ -1,6 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Form removed for WhatsApp direct link
+    // 1. Form Submission to Google Sheets
+    const form = document.getElementById('leadForm');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    // NOTE: Replace this placeholder with the deployed Google Apps Script Web App URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyPsbTHLlJjdpxlqqgv0Pbp5pkoH6XoXCi8Y0iIt0HmYhahJ3cqoUB3Lbtleh4jEPUDnA/exec'; 
 
+    if (form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'Submitting...';
+            submitBtn.disabled = true;
+
+            if (scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                alert("Please add your Google Apps Script URL to main.js");
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+                return;
+            }
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    console.log('Success!', response);
+                    window.location.href = "thank-you.html"; // Redirect on success
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("There was an error submitting your request. Please try WhatsApp.");
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
+    }
     // 2. Scroll Reveal Animations (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
 
