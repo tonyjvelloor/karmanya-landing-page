@@ -39,6 +39,64 @@
       gtag('config', 'AW-18375933203');
     </script>
 
+    <!-- MedicalClinic Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Karmanya Ayurveda Chikitsalaya",
+      "image": "https://consult.karmanyaayurveda.com/images/clinic_hero_exterior.jpg",
+      "url": "https://consult.karmanyaayurveda.com/",
+      "telephone": "+919819820017",
+      "priceRange": "₹₹",
+      "medicalSpecialty": ["Ayurvedic", "Musculoskeletal", "PainManagement"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "27/11 Swaraj Garden Road, Near One Nation Apartment",
+        "addressLocality": "Pimple Saudagar, Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "411027",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 18.5987,
+        "longitude": 73.7884
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "20:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "186"
+      }
+    }
+    </script>
+
+    <!-- Synchronous Ad Matching Script (prevents FOUC) -->
+    <script>
+    (function() {
+        try {
+            var p = new URLSearchParams(window.location.search);
+            var q = ((p.get('utm_campaign')||'') + ' ' + (p.get('utm_term')||'') + ' ' + (p.get('utm_content')||'') + ' ' + (p.get('condition')||'') + ' ' + (p.get('c')||'')).toLowerCase();
+            window.__adQuery = q;
+            if (/knee|ghutn|janu|osteoarth|patell/.test(q)) {
+                document.title = "Ayurvedic Knee Pain Treatment in Pimple Saudagar | Karmanya Ayurveda Pune";
+            } else if (/sciatica|slip|disc|back|kamar|spine|lumbar|gridhrasi/.test(q)) {
+                document.title = "Ayurvedic Sciatica & Slip Disc Treatment in Pimple Saudagar | Karmanya Ayurveda Pune";
+            } else if (/cervical|neck|shoulder|griva|spondylosis/.test(q)) {
+                document.title = "Ayurvedic Cervical Spondylosis Treatment in Pimple Saudagar | Karmanya Ayurveda Pune";
+            }
+        } catch(e) {}
+    })();
+    </script>
+
     <style>
         /* ── OPD Timing Bar ───────────────────────────── */
         .opd-bar {
@@ -47,29 +105,29 @@
             text-align: center;
             font-size: 0.82rem;
             font-weight: 600;
-            padding: 9px 16px;
-            letter-spacing: 0.04em;
+            padding: 7px 16px;
+            letter-spacing: 0.03em;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
         .opd-bar .opd-pill {
             background: rgba(255,255,255,0.12);
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 20px;
-            padding: 3px 12px;
-            font-size: 0.8rem;
+            padding: 3px 10px;
+            font-size: 0.78rem;
         }
         .opd-bar .opd-open {
             background: #22c55e;
             color: #fff;
             border-radius: 20px;
-            padding: 3px 12px;
-            font-size: 0.75rem;
+            padding: 3px 10px;
+            font-size: 0.74rem;
             font-weight: 700;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
         }
         /* ── Doctor Card ──────────────────────────────── */
@@ -77,30 +135,30 @@
             background: #fff;
             border: 1px solid #e5e7eb;
             border-radius: 12px;
-            padding: 1rem 1.2rem;
+            padding: 0.85rem 1rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
+            gap: 0.85rem;
+            margin-bottom: 1rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
         .doctor-strip img {
-            width: 54px;
-            height: 54px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #D4AF37;
             flex-shrink: 0;
         }
-        .doctor-strip .doc-info { flex: 1; }
-        .doctor-strip .doc-name { font-weight: 700; font-size: 0.95rem; color: #1a3d2b; margin: 0; }
-        .doctor-strip .doc-qual { font-size: 0.82rem; color: #4b5563; margin: 2px 0 0; }
+        .doctor-strip .doc-info { flex: 1; text-align: left; }
+        .doctor-strip .doc-name { font-weight: 700; font-size: 0.92rem; color: #1a3d2b; margin: 0; }
+        .doctor-strip .doc-qual { font-size: 0.8rem; color: #4b5563; margin: 2px 0 0; }
         .doctor-strip .doc-badge {
             background: #f0fdf4;
             color: #166534;
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             font-weight: 600;
-            padding: 3px 10px;
+            padding: 3px 9px;
             border-radius: 20px;
             border: 1px solid #bbf7d0;
             white-space: nowrap;
@@ -128,12 +186,12 @@
             background: linear-gradient(135deg, #fef3c7, #fde68a);
             border: 1px solid #f59e0b;
             border-radius: 8px;
-            padding: 0.75rem 1rem;
-            font-size: 0.88rem;
+            padding: 0.65rem 0.9rem;
+            font-size: 0.84rem;
             font-weight: 600;
             color: #92400e;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
         }
         /* ── In-person trust strip ────────────────────── */
         .inperson-notice {
@@ -145,6 +203,83 @@
             color: #166534;
             font-weight: 500;
             margin-bottom: 1.25rem;
+        }
+
+        /* ── Mobile-first Fold & Density Enhancements ── */
+        @media (max-width: 768px) {
+            .opd-bar {
+                padding: 5px 8px;
+                font-size: 0.73rem;
+                gap: 5px;
+                line-height: 1.3;
+            }
+            .opd-bar .opd-pill {
+                padding: 2px 7px;
+                font-size: 0.7rem;
+            }
+            .opd-bar .opd-open {
+                padding: 2px 7px;
+                font-size: 0.68rem;
+            }
+            .header {
+                padding: 0.4rem 0 !important;
+            }
+            .logo img {
+                height: 48px !important;
+                max-width: 170px !important;
+            }
+            .hero {
+                padding: 1.25rem 0 2rem !important;
+            }
+            .main-headline {
+                font-size: 1.55rem !important;
+                line-height: 1.25 !important;
+                margin-bottom: 0.4rem !important;
+            }
+            .sub-headline {
+                font-size: 0.88rem !important;
+                line-height: 1.4 !important;
+                margin-bottom: 0.6rem !important;
+            }
+            .hero-trust-badges {
+                gap: 0.35rem !important;
+                margin-top: 0.4rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            .hero-trust-badges span {
+                padding: 0.25rem 0.55rem !important;
+                font-size: 0.72rem !important;
+            }
+            .hero-form-wrapper {
+                margin-top: 0.75rem !important;
+            }
+            .glass-form {
+                padding: 1rem 0.85rem !important;
+            }
+            .walkin-strip {
+                padding: 0.45rem 0.65rem !important;
+                font-size: 0.76rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            .doctor-strip {
+                padding: 0.5rem 0.65rem !important;
+                gap: 0.5rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            .doctor-strip img {
+                width: 38px !important;
+                height: 38px !important;
+            }
+            .doctor-strip .doc-name {
+                font-size: 0.84rem !important;
+            }
+            .doctor-strip .doc-qual {
+                font-size: 0.72rem !important;
+            }
+            .doctor-strip .doc-badge {
+                font-size: 0.68rem !important;
+                padding: 2px 6px !important;
+            }
         }
     </style>
 </head>
@@ -185,10 +320,6 @@
                         <span style="background: rgba(255,255,255,0.9); padding: 0.45rem 1rem; border-radius: 50px; border: 1px solid #EAE6DF; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">🏥 In-Clinic Consultations Only</span>
                         <span style="background: rgba(255,255,255,0.9); padding: 0.45rem 1rem; border-radius: 50px; border: 1px solid #EAE6DF; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">👨‍⚕️ BAMS Qualified Physicians</span>
                     </div>
-
-                    <div class="hero-image mobile-only" style="margin-top: 2rem; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.3);">
-                        <img src="images/clinic_hero_exterior.jpg" alt="Karmanya Ayurveda Clinic in Pimple Saudagar" style="width: 100%; display: block; object-fit: cover; max-height: 250px; object-position: center;">
-                    </div>
                 </div>
 
                 <!-- Booking Form — walk-in focused -->
@@ -200,20 +331,23 @@
                             🏥 This is an in-clinic OPD — not online / tele-consultation
                         </div>
 
-                        <!-- Doctor availability -->
+                        <!-- Doctor availability — pain & spine care specialist alignment -->
                         <div class="doctor-strip" style="margin-bottom: 1rem;">
-                            <img src="images/doctor_2.png" alt="Dr. Tejasvi Mulik">
-                            <div class="doc-info">
-                                <p class="doc-name">Dr. Tejasvi Mulik</p>
-                                <p class="doc-qual">BAMS · Senior Ayurvedic Physician &amp; Panchakarma Specialist</p>
+                            <div style="display: flex; align-items: center; position: relative; flex-shrink: 0;">
+                                <img src="images/real_doctor_portrait.jpg" alt="Dr. Irshad T.M. — Spine &amp; Joint Specialist" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #D4AF37;">
+                                <img src="images/doctor_2.png" alt="Dr. Tejasvi Mulik — Senior Ayurvedic Physician" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #1a3d2b; margin-left: -12px;">
                             </div>
-                            <span class="doc-badge">🟢 Consulting Today</span>
+                            <div class="doc-info" style="text-align: left;">
+                                <p class="doc-name" style="font-size: 0.9rem; font-weight: 700; color: #1a3d2b; margin: 0;">Dr. Irshad T.M. &amp; Dr. Tejasvi Mulik</p>
+                                <p class="doc-qual" style="font-size: 0.78rem; color: #4b5563; margin: 2px 0 0;">BAMS · Senior Spine, Joint &amp; Panchakarma Physicians</p>
+                            </div>
+                            <span class="doc-badge" style="background:#f0fdf4;color:#166534;font-size:0.72rem;padding:3px 8px;border-radius:20px;border:1px solid #bbf7d0;font-weight:600;white-space:nowrap;">🟢 In OPD Today</span>
                         </div>
 
                         <h3 style="margin-bottom:0.4rem;">Book Your In-Clinic Consultation</h3>
                         <p class="form-sub" style="margin-bottom: 1.2rem; font-size:0.9rem;">Our doctor will call you to confirm your slot at the Pimple Saudagar clinic.</p>
 
-                        <form id="leadForm" class="lead-form mb-4" style="text-align: left;">
+                        <form id="leadForm" class="lead-form mb-4" method="POST" action="thank-you.html" style="text-align: left;">
                             <div style="margin-bottom: 1rem;">
                                 <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; font-family: inherit; box-sizing: border-box;">
                             </div>
@@ -233,6 +367,12 @@
                                 📅 Request Clinic Appointment
                             </button>
                         </form>
+
+                        <!-- High trust mini-testimonial at conversion point -->
+                        <div style="margin-top: 0.5rem; margin-bottom: 1.2rem; padding: 0.65rem 0.85rem; background: #fdfbf7; border: 1px dashed #d1c7b7; border-radius: 8px; font-size: 0.82rem; color: #444; text-align: left;">
+                            <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 2px;">★★★★★ <strong style="color: #1a3d2b;">Verified Google Review</strong></div>
+                            <em>"Avoided knee replacement surgery after 14 sessions of Janu Basti. Walking comfortably now."</em> — <strong>Sunil K.</strong>, Pimple Saudagar
+                        </div>
 
                         <div style="display: flex; align-items: center; justify-content: center; margin: 1rem 0; color: #888; font-size: 0.9rem;">
                             <hr style="flex-grow: 1; border: none; border-top: 1px solid #eee;">
@@ -284,7 +424,7 @@
                     <div class="empathy-card reveal">
                         <div class="empathy-img-wrapper">
                             <span class="empathy-badge">01</span>
-                            <img src="images/pain_knee.png" alt="Difficulty climbing stairs">
+                            <img src="images/pain_knee.png" alt="Difficulty climbing stairs" loading="lazy">
                         </div>
                         <div class="empathy-content">
                             <span class="empathy-icon">🦴</span>
@@ -294,7 +434,7 @@
                     <div class="empathy-card reveal delay-1">
                         <div class="empathy-img-wrapper">
                             <span class="empathy-badge">02</span>
-                            <img src="images/pain_back.png" alt="Long hours causing stiffness">
+                            <img src="images/pain_back.png" alt="Long hours causing stiffness" loading="lazy">
                         </div>
                         <div class="empathy-content">
                             <span class="empathy-icon">🧍</span>
@@ -304,7 +444,7 @@
                     <div class="empathy-card reveal delay-2">
                         <div class="empathy-img-wrapper">
                             <span class="empathy-badge">03</span>
-                            <img src="images/pain_lifestyle.png" alt="Missing active lifestyle">
+                            <img src="images/pain_lifestyle.png" alt="Missing active lifestyle" loading="lazy">
                         </div>
                         <div class="empathy-content">
                             <span class="empathy-icon">🚶</span>
@@ -320,7 +460,7 @@
             <div class="container">
                 <div class="grid-2 align-center reveal">
                     <div class="clinic-image-wrapper">
-                        <img src="images/clinic_front.jpg" alt="Karmanya Ayurveda Clinic in Pimple Saudagar" class="rounded-image shadow-large" style="width: 100%; height: auto; display: block;">
+                        <img src="images/clinic_front.jpg" alt="Karmanya Ayurveda Clinic in Pimple Saudagar" class="rounded-image shadow-large" style="width: 100%; height: auto; display: block;" loading="lazy">
                         <div class="location-badge">📍 27/11 Swaraj Garden Rd, Pimple Saudagar</div>
                     </div>
                     <div class="clinic-content">
@@ -391,7 +531,7 @@
                 <div class="grid-3 mt-4 text-left">
                     <div class="solution-card reveal">
                         <div class="card-image">
-                            <img src="images/janu_basti_new.jpg" alt="Janu Basti Therapy">
+                            <img src="images/janu_basti_new.jpg" alt="Janu Basti Therapy" loading="lazy">
                         </div>
                         <div class="solution-content">
                             <div class="solution-header">
@@ -407,7 +547,7 @@
                     </div>
                     <div class="solution-card reveal delay-1">
                         <div class="card-image">
-                            <img src="images/pinda_sweda.png" alt="Patra Pinda Sweda">
+                            <img src="images/pinda_sweda.png" alt="Patra Pinda Sweda" loading="lazy">
                         </div>
                         <div class="solution-content">
                             <div class="solution-header">
@@ -423,7 +563,7 @@
                     </div>
                     <div class="solution-card reveal delay-2">
                         <div class="card-image">
-                            <img src="images/wellness_plan.png" alt="Kati Basti — Back Pain Treatment">
+                            <img src="images/wellness_plan.png" alt="Kati Basti — Back Pain Treatment" loading="lazy">
                         </div>
                         <div class="solution-content">
                             <div class="solution-header">
@@ -455,12 +595,22 @@
                     <div class="testimonial reveal">
                         <div class="stars">★★★★★</div>
                         <p>"After 3 years of knee pain and two orthopaedic opinions recommending surgery, Dr. Irshad's protocol with Janu Basti gave me 80% relief in 6 weeks. I avoided surgery completely."</p>
-                        <p class="author">- Ramesh S.<br><span style="font-size: 0.85rem; color: #6B7280; font-weight: normal;">Wakad, Pune</span></p>
+                        <p class="author">- Ramesh S.<br><span style="font-size: 0.85rem; color: #6B7280; font-weight: normal;">Wakad, Pune · Severe Knee Osteoarthritis</span></p>
                     </div>
                     <div class="testimonial reveal delay-1">
                         <div class="stars">★★★★★</div>
                         <p>"I came expecting a massage. Instead I got a full clinical assessment, pulse diagnosis, and a 3-month treatment plan. This is a real medical centre. My sciatica is 90% better."</p>
-                        <p class="author">- Priya N.<br><span style="font-size: 0.85rem; color: #6B7280; font-weight: normal;">Hinjawadi, Pune</span></p>
+                        <p class="author">- Priya N.<br><span style="font-size: 0.85rem; color: #6B7280; font-weight: normal;">Hinjawadi, Pune · L4-L5 Lumbar Sciatica</span></p>
+                    </div>
+                    <div class="testimonial reveal">
+                        <div class="stars">★★★★★</div>
+                        <p>"Working 10+ hours on laptop had wrecked my neck and shoulder. 7 sessions of Greeva Basti and herbal fomentation eliminated the persistent radiating nerve pain completely."</p>
+                        <p class="author">- Anand K.<br><span style="font-size: 0.85rem; color: #6B7280; font-weight: normal;">Pimple Saudagar · Cervical Spondylosis</span></p>
+                    </div>
+                    <div class="testimonial reveal delay-1">
+                        <div class="stars">★★★★★</div>
+                        <p>"Both my knees were stiff every morning and stair climbing was agonizing. The authentic Kerala oils and Patra Pinda Sweda restored my joint flexibility within a month."</p>
+                        <p class="author">- Sunita M.<br><span style="font-size: 0.85rem; color: #6B7280; font-weight: normal;">Baner, Pune · Bilateral Knee Stiffness</span></p>
                     </div>
                 </div>
 
@@ -481,7 +631,7 @@
                 <div class="expert-grid reveal mt-4">
                     <div class="expert-image">
                         <div class="image-wrapper">
-                            <img src="images/real_doctor_portrait.jpg" alt="Dr. Irshad T.M. — BAMS, Ayurvedic Physician, Karmanya Ayurveda">
+                            <img src="images/real_doctor_portrait.jpg" alt="Dr. Irshad T.M. — BAMS, Ayurvedic Physician, Karmanya Ayurveda" loading="lazy">
                         </div>
                     </div>
                     <div class="expert-content">
@@ -500,19 +650,19 @@
                 <div class="expert-grid reverse reveal mt-5" style="margin-top: 5rem;">
                     <div class="expert-image">
                         <div class="image-wrapper">
-                            <img src="images/doctor_2.png" alt="Dr. Tejasvi Mulik — BAMS, Ayurvedic Physician, Karmanya Ayurveda">
+                            <img src="images/doctor_2.png" alt="Dr. Tejasvi Mulik — BAMS, Ayurvedic Physician, Karmanya Ayurveda" loading="lazy">
                         </div>
                     </div>
                     <div class="expert-content">
-                        <h4 class="expert-name">Dr. Tejasvi Mulik <span style="background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:20px;padding:3px 10px;font-size:0.75rem;font-weight:700;vertical-align:middle;">🟢 Consulting Today</span></h4>
+                        <h4 class="expert-name">Dr. Tejasvi Mulik <span style="background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:20px;padding:3px 10px;font-size:0.75rem;font-weight:700;vertical-align:middle;">🟢 In OPD Today</span></h4>
                         <h4 class="expert-name text-primary">BAMS · Senior Ayurveda Physician</h4>
                         <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0.75rem 0;">
+                            <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;">Spine &amp; Joint Care</span>
                             <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;">Panchakarma Specialist</span>
-                            <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;">Women's Health &amp; PCOD</span>
-                            <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;">Metabolic Disorders</span>
+                            <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;">Nadi Pariksha</span>
                             <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;">7+ Years Experience</span>
                         </div>
-                        <p class="expert-bio">Dr. Tejasvi specialises in Panchakarma detox protocols, women's hormonal health, and metabolic condition management. Every patient receives a complete Prakriti assessment and personalised treatment plan tailored to their constitution.</p>
+                        <p class="expert-bio">Dr. Tejasvi provides comprehensive OPD clinical consultations and oversees authentic Panchakarma therapies for spine, joint, and chronic pain management. Every patient receives an in-depth Nadi Pariksha and personalized treatment plan.</p>
                     </div>
                 </div>
             </div>
@@ -523,7 +673,9 @@
             <div class="container reveal">
                 <div class="text-center">
                     <h2 class="section-title large-title">Frequently Asked <span class="text-gold">Questions</span></h2>
+                    <p class="section-description max-w-700 mx-auto font-medium">Clear, honest answers about our clinic, doctors, and treatments.</p>
                 </div>
+
                 <div class="faq-container mt-4 mx-auto max-w-700">
                     <div class="faq-item">
                         <button class="faq-question">Is this an online consultation or an in-person clinic? <span class="faq-icon">+</span></button>
@@ -547,7 +699,7 @@
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Do I need an appointment? <span class="faq-icon">+</span></button>
-                        <div class="faq-answer"><p>Walk-ins are welcome, but booking an appointment ensures dedicated consultation time and avoids unnecessary waiting. Call us or message on WhatsApp to confirm your slot.</p></div>
+                        <div class="faq-answer"><p>We strongly advise booking your consultation in advance to guarantee zero waiting time with our consulting physicians. While walk-in patients are accommodated based on daily OPD capacity, scheduled appointments receive clinical priority. Call us or message on WhatsApp to confirm your slot.</p></div>
                     </div>
                 </div>
             </div>

@@ -122,4 +122,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 6. Dynamic Message Match from UTM / Query Parameters
+    const adQ = window.__adQuery || (new URLSearchParams(window.location.search)).toString().toLowerCase();
+    const headlineEl = document.querySelector('.main-headline');
+    const subheadEl = document.querySelector('.sub-headline');
+    const preheadEl = document.querySelector('.pre-headline');
+    const concernSelect = document.querySelector('select[name="concern"]');
+
+    if (headlineEl && adQ) {
+        if (/knee|ghutn|janu|osteoarth|patell/.test(adQ)) {
+            if (preheadEl) preheadEl.innerText = "Karmanya Ayurveda · Non-Surgical Knee Care Clinic · Pimple Saudagar, Pune";
+            headlineEl.innerHTML = "Visit Our Ayurveda Clinic in Pimple Saudagar for <span class=\"text-gold\">Non-Surgical Knee Pain Relief.</span>";
+            if (subheadEl) subheadEl.innerText = "Qualified BAMS doctors. Authentic Kerala Janu Basti & Patra Pinda Sweda for cartilage wear, stiffness & arthritis. Avoid knee surgery. Walk pain-free.";
+            if (concernSelect) concernSelect.value = "knee";
+        } else if (/sciatica|slip|disc|back|kamar|spine|lumbar|gridhrasi/.test(adQ)) {
+            if (preheadEl) preheadEl.innerText = "Karmanya Ayurveda · Spine & Sciatica Decompression Clinic · Pimple Saudagar, Pune";
+            headlineEl.innerHTML = "Visit Our Ayurveda Clinic in Pimple Saudagar for <span class=\"text-gold\">Non-Surgical Sciatica & Slip Disc Relief.</span>";
+            if (subheadEl) subheadEl.innerText = "Qualified BAMS doctors. Authentic Kerala Kati Basti & classical nerve decompression for lumbar disc herniation & back stiffness. Avoid spinal surgery.";
+            if (concernSelect) concernSelect.value = "back";
+        } else if (/cervical|neck|shoulder|griva|spondylosis/.test(adQ)) {
+            if (preheadEl) preheadEl.innerText = "Karmanya Ayurveda · Cervical & Neck Care Clinic · Pimple Saudagar, Pune";
+            headlineEl.innerHTML = "Visit Our Ayurveda Clinic in Pimple Saudagar for <span class=\"text-gold\">Non-Surgical Cervical & Neck Pain Relief.</span>";
+            if (subheadEl) subheadEl.innerText = "Relieve chronic desk neck strain, cervical spondylosis & radiating shoulder pain with classical Greeva Basti, Nasya & Kerala herbal fomentation.";
+            if (concernSelect) concernSelect.value = "neck";
+        }
+    }
 });
