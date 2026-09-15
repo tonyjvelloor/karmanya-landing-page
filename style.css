@@ -522,6 +522,18 @@ a {
     color: var(--text-light);
 }
 
+.tbm-badge:hover {
+    background: #1a3d2b !important;
+    color: #ffffff !important;
+    border-color: #1a3d2b !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(26, 61, 43, 0.25);
+}
+
+.tbm-badge:hover svg {
+    stroke: #ffffff;
+}
+
 /* New Premium UI Utilities */
 .bg-cream { background-color: #FDFBF7; }
 .text-gold { color: #8F6A3B; font-weight: 500; }
