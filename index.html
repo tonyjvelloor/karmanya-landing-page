@@ -219,11 +219,11 @@
     <!-- Top Sticky Bar & Header Container -->
     <div class="fixed top-0 left-0 w-full z-50">
         <!-- Top Announcement Bar -->
-        <div class="bg-deep-forest text-on-primary py-2 px-4 lg:px-8 border-b border-primary-container/40">
-            <div class="max-w-[1240px] mx-auto flex flex-wrap items-center justify-between gap-2 text-center lg:text-left">
-                <div class="flex items-center gap-2.5 mx-auto lg:mx-0">
-                    <span class="w-2.5 h-2.5 rounded-full bg-opd-active-green animate-pulse"></span>
-                    <p id="topOpdDay" class="font-label-md text-label-md text-primary-fixed font-semibold tracking-wide">
+        <div class="bg-deep-forest text-on-primary py-1.5 sm:py-2 px-3 sm:px-6 lg:px-8 border-b border-primary-container/40">
+            <div class="max-w-[1240px] mx-auto flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 text-center lg:text-left">
+                <div class="flex items-center gap-2 mx-auto lg:mx-0">
+                    <span class="w-2 h-2 rounded-full bg-opd-active-green animate-pulse shrink-0"></span>
+                    <p id="topOpdDay" class="text-[11px] sm:text-label-md text-primary-fixed font-semibold tracking-wide leading-tight">
                         Clinic Open Today · Pimple Saudagar, Pune · OPD: Mon–Sun, 10 AM – 8 PM
                     </p>
                 </div>
@@ -241,20 +241,20 @@
             </div>
         </div>
 
-        <!-- Main Header with Bigger Logo -->
+        <!-- Main Header with Responsive Brand Logo -->
         <header class="bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_4px_20px_rgba(15,54,37,0.06)] border-b border-sage-border/40">
-            <div class="h-20 lg:h-24 max-w-[1240px] mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
+            <div class="h-16 sm:h-20 lg:h-24 max-w-[1240px] mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-2.5 sm:gap-4">
                 
-                <!-- Brand Logo (Enlarged for Premium Visibility) -->
-                <a href="#" class="flex items-center gap-3 sm:gap-3.5 group text-decoration-none">
+                <!-- Brand Logo (Enlarged & Responsively Fitted) -->
+                <a href="#" class="flex items-center gap-2.5 sm:gap-3.5 group text-decoration-none min-w-0">
                     <img alt="Karmanya Ayurveda Logo" 
-                         class="h-14 sm:h-16 lg:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm" 
+                         class="h-11 sm:h-16 lg:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm shrink-0" 
                          src="images/logo.png"/>
-                    <div class="flex flex-col">
-                        <span class="font-headline-sm text-[19px] sm:text-headline-sm text-primary tracking-tight font-bold group-hover:text-primary-container transition-colors">
+                    <div class="flex flex-col min-w-0">
+                        <span class="font-headline-sm text-[16px] sm:text-[19px] lg:text-headline-sm text-primary tracking-tight font-bold group-hover:text-primary-container transition-colors truncate">
                             Karmanya Ayurveda
                         </span>
-                        <span class="font-label-sm text-[10px] sm:text-label-sm text-gold-dark uppercase font-semibold tracking-wider">
+                        <span class="font-label-sm text-[9px] sm:text-label-sm text-gold-dark uppercase font-semibold tracking-wider truncate">
                             Authentic Kerala Spine &amp; Joint Centre
                         </span>
                     </div>
@@ -271,7 +271,7 @@
                 </nav>
 
                 <!-- Header Actions -->
-                <div class="flex items-center gap-2.5 sm:gap-3">
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
                     <a class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-sage-surface text-primary border border-sage-border hover:bg-surface-container-high transition-colors font-label-md text-label-md font-bold shadow-sm" 
                        href="https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar." 
                        target="_blank"
@@ -279,10 +279,11 @@
                         <span class="material-symbols-outlined text-[18px] text-opd-active-green">chat</span>
                         <span>WhatsApp Slot</span>
                     </a>
-                    <a class="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-all font-label-lg text-label-lg font-bold shadow-[0_4px_16px_rgba(0,54,36,0.25)] hover:shadow-lg hover:-translate-y-0.5" 
-                       href="#book-consultation">
-                        <span class="material-symbols-outlined text-[18px] text-secondary-fixed">calendar_month</span>
-                        <span>Book Consultation</span>
+                    <a class="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-all font-label-lg text-xs sm:text-label-lg font-bold shadow-[0_4px_16px_rgba(0,54,36,0.25)] hover:shadow-lg whitespace-nowrap active:scale-95" 
+                       href="#book-consultation"
+                       onclick="document.getElementById('book-consultation').scrollIntoView({behavior:'smooth'});">
+                        <span class="material-symbols-outlined text-[16px] sm:text-[18px] text-secondary-fixed">calendar_month</span>
+                        <span><span class="sm:hidden">Book Slot</span><span class="hidden sm:inline">Book Consultation</span></span>
                     </a>
                 </div>
             </div>
@@ -290,7 +291,7 @@
     </div>
 
     <!-- Main Content Body -->
-    <main class="w-full pt-28 sm:pt-32 lg:pt-36 bg-warm-ivory">
+    <main class="w-full pt-24 sm:pt-28 lg:pt-36 bg-warm-ivory overflow-x-hidden">
         <div class="flex flex-col w-full text-on-surface">
 
             <!-- 1. HIGH-IMPACT HERO SECTION (2-Column Conversion Engine) -->
@@ -329,12 +330,34 @@
                                 Visit Our Ayurveda Clinic in Pimple Saudagar for <span class="text-gold-dark">Non-Surgical Knee &amp; Back Pain Relief.</span>
                             </h1>
 
-                            <p id="subHeadline" class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            <p id="subHeadline" class="font-body-lg text-sm sm:text-body-lg text-on-surface-variant leading-relaxed">
                                 Qualified BAMS doctors. Authentic Kerala therapies — <strong class="text-on-surface font-semibold">Janu Basti, Kati Basti &amp; Patra Pinda Sweda</strong>. Root-cause diagnosis with precision Nadi Pariksha. No surgery. No heavy painkillers.
                             </p>
 
-                            <!-- Trust Pillar Grid -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <!-- Mobile-First Direct Action Row (Immediately below subhead for instant mobile conversion) -->
+                            <div class="lg:hidden flex gap-2.5 pt-1">
+                                <a href="tel:+919819820017" 
+                                   onclick="gtag('event','conversion',{'send_to':'AW-18375933203/91coCMuK5uscEJP6qbpE'});"
+                                   class="flex-1 py-3 px-3 rounded-xl bg-primary text-on-primary font-bold text-center flex items-center justify-center gap-1.5 shadow-md text-sm active:scale-95 transition-transform">
+                                    <span class="material-symbols-outlined text-[18px]">call</span>
+                                    <span>Call Clinic</span>
+                                </a>
+                                <a id="mobileHeroWaBtn"
+                                   href="https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar." 
+                                   target="_blank"
+                                   onclick="gtag('event','conversion',{'send_to':'AW-18375933203/91coCMuK5uscEJP6qbpE'});"
+                                   class="flex-1 py-3 px-3 rounded-xl bg-opd-active-green text-on-primary font-bold text-center flex items-center justify-center gap-1.5 shadow-md text-sm active:scale-95 transition-transform">
+                                    <span class="material-symbols-outlined text-[18px]">chat</span>
+                                    <span>WhatsApp Doctor</span>
+                                </a>
+                            </div>
+                            <div class="lg:hidden flex items-center justify-center gap-2 py-0.5 text-xs text-on-surface-variant font-medium">
+                                <span class="w-2 h-2 rounded-full bg-opd-active-green"></span>
+                                <span>45-Min Pulse Exam · ₹500 Fee · Zero Waiting Time</span>
+                            </div>
+
+                            <!-- Trust Pillar Grid (Compact 2x2 on Mobile) -->
+                            <div class="grid grid-cols-2 gap-2 sm:gap-3 pt-1">
                                 <div class="p-3.5 bg-surface-container-lowest rounded-xl shadow-sm border border-sage-border/50 flex items-start gap-3">
                                     <span class="material-symbols-outlined text-primary text-[26px] shrink-0 mt-0.5">medical_services</span>
                                     <div>
@@ -380,31 +403,16 @@
                                 </div>
                             </div>
 
-                            <!-- Mobile Quick Contact Row (Direct Above Form) -->
-                            <div class="lg:hidden flex gap-2.5 pt-2">
-                                <a href="tel:+919819820017" 
-                                   onclick="gtag('event','conversion',{'send_to':'AW-18375933203/91coCMuK5uscEJP6qbpE'});"
-                                   class="flex-1 py-3 px-4 rounded-xl bg-primary text-on-primary font-bold text-center flex items-center justify-center gap-1.5 shadow-md text-sm">
-                                    <span class="material-symbols-outlined text-[18px]">call</span>
-                                    <span>Call OPD Now</span>
-                                </a>
-                                <a href="https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar." 
-                                   target="_blank"
-                                   onclick="gtag('event','conversion',{'send_to':'AW-18375933203/91coCMuK5uscEJP6qbpE'});"
-                                   class="flex-1 py-3 px-4 rounded-xl bg-opd-active-green text-on-primary font-bold text-center flex items-center justify-center gap-1.5 shadow-md text-sm">
-                                    <span class="material-symbols-outlined text-[18px]">chat</span>
-                                    <span>WhatsApp Doctor</span>
-                                </a>
-                            </div>
+
 
                         </div>
 
                         <!-- Right Column: Sticky High-Converting Booking Card (5 Cols) -->
-                        <div class="lg:col-span-5 lg:sticky lg:top-32" id="book-consultation">
-                            <div class="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-xl border border-sage-border relative overflow-hidden">
+                        <div class="lg:col-span-5 lg:sticky lg:top-28 sm:lg:top-32" id="book-consultation">
+                            <div class="bg-surface-container-lowest rounded-2xl p-4 sm:p-space-lg shadow-xl border border-sage-border relative overflow-hidden">
                                 
                                 <!-- Live Status Ribbon -->
-                                <div class="flex items-center justify-between pb-3 mb-4 bg-surface-container-low -mx-5 -mt-5 px-5 pt-3.5 border-b border-sage-border/60">
+                                <div class="flex items-center justify-between pb-2.5 mb-3.5 bg-surface-container-low -mx-4 -mt-4 px-4 pt-3 border-b border-sage-border/60">
                                     <div class="flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-opd-active-green animate-ping"></span>
                                         <span id="formOpdDay" class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">
@@ -458,7 +466,7 @@
                                     <div>
                                         <label class="block font-label-sm text-label-sm text-on-surface uppercase mb-1 font-bold" for="fullName">Full Name *</label>
                                         <input name="name" 
-                                               class="w-full px-3.5 py-2.5 rounded-lg bg-warm-ivory text-on-surface font-body-md text-body-md border border-sage-border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" 
+                                               class="w-full px-3.5 py-2.5 rounded-lg bg-warm-ivory text-on-surface text-base sm:text-body-md border border-sage-border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" 
                                                id="fullName" 
                                                placeholder="e.g. Rajesh Patil" 
                                                required="" 
@@ -469,7 +477,7 @@
                                     <div>
                                         <label class="block font-label-sm text-label-sm text-on-surface uppercase mb-1 font-bold" for="phone">WhatsApp / Phone Number *</label>
                                         <input name="phone" 
-                                               class="w-full px-3.5 py-2.5 rounded-lg bg-warm-ivory text-on-surface font-body-md text-body-md border border-sage-border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" 
+                                               class="w-full px-3.5 py-2.5 rounded-lg bg-warm-ivory text-on-surface text-base sm:text-body-md border border-sage-border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" 
                                                id="phone" 
                                                placeholder="+91 98XXX XXXXX" 
                                                required="" 
@@ -480,7 +488,7 @@
                                     <div>
                                         <label class="block font-label-sm text-label-sm text-on-surface uppercase mb-1 font-bold" for="slot">Preferred Timing</label>
                                         <select name="timeslot" 
-                                                class="w-full px-3.5 py-2.5 rounded-lg bg-warm-ivory text-on-surface font-body-md text-body-md border border-sage-border focus:outline-none focus:ring-2 focus:ring-primary/20" 
+                                                class="w-full px-3.5 py-2.5 rounded-lg bg-warm-ivory text-on-surface text-base sm:text-body-md border border-sage-border focus:outline-none focus:ring-2 focus:ring-primary/20" 
                                                 id="slot">
                                             <option value="Today Morning (10:00 AM – 1:00 PM)">Today Morning (10:00 AM – 1:00 PM)</option>
                                             <option value="Today Afternoon (1:00 PM – 5:00 PM)">Today Afternoon (1:00 PM – 5:00 PM)</option>
@@ -698,9 +706,9 @@
                                      class="w-full h-full object-cover" 
                                      src="images/clinic_hero_exterior.jpg"/>
                             </div>
-                            <div class="absolute -bottom-4 -right-2 bg-deep-forest text-on-primary p-3.5 rounded-xl shadow-xl flex items-center gap-2.5 border border-primary-container">
-                                <span class="material-symbols-outlined text-secondary-fixed text-[22px]">location_on</span>
-                                <span class="font-label-md text-label-md font-bold">27/11 Swaraj Garden Rd, Pimple Saudagar</span>
+                            <div class="mt-3 sm:mt-0 sm:absolute sm:-bottom-4 sm:right-2 lg:-right-2 bg-deep-forest text-on-primary p-3 rounded-xl shadow-xl flex items-center gap-2.5 border border-primary-container">
+                                <span class="material-symbols-outlined text-secondary-fixed text-[20px] shrink-0">location_on</span>
+                                <span class="text-xs sm:font-label-md sm:text-label-md font-bold leading-tight">27/11 Swaraj Garden Rd, Pimple Saudagar</span>
                             </div>
                         </div>
 
@@ -1119,7 +1127,7 @@
                         
                         <!-- Doctor 1: Dr. Irshad T.M. -->
                         <div class="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-sage-border flex flex-col sm:flex-row gap-5">
-                            <div class="w-full sm:w-48 aspect-square rounded-xl overflow-hidden shrink-0 bg-surface-container shadow-sm border border-sage-border/60">
+                            <div class="w-full sm:w-44 h-56 sm:h-auto sm:aspect-square rounded-xl overflow-hidden shrink-0 bg-surface-container shadow-sm border border-sage-border/60">
                                 <img alt="Dr. Irshad T.M. Senior Ayurvedic Physician" 
                                      class="w-full h-full object-cover object-top" 
                                      src="images/dr-irshad.jpg"/>
@@ -1156,7 +1164,7 @@
 
                         <!-- Doctor 2: Dr. Tejasvi Mulik -->
                         <div class="bg-surface-container-lowest rounded-2xl p-5 sm:p-space-lg shadow-sm border border-sage-border flex flex-col sm:flex-row gap-5">
-                            <div class="w-full sm:w-48 aspect-square rounded-xl overflow-hidden shrink-0 bg-surface-container shadow-sm border border-sage-border/60">
+                            <div class="w-full sm:w-44 h-56 sm:h-auto sm:aspect-square rounded-xl overflow-hidden shrink-0 bg-surface-container shadow-sm border border-sage-border/60">
                                 <img alt="Dr. Tejasvi Mulik Senior Ayurvedic Physician" 
                                      class="w-full h-full object-cover object-top" 
                                      src="images/dr-tejasvi.jpg"/>
@@ -1495,8 +1503,8 @@
         </div>
     </footer>
 
-    <!-- Fixed Mobile Bottom Sticky Bar -->
-    <div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-lg py-2.5 px-4 border-t border-sage-border shadow-[0_-8px_30px_rgba(15,54,37,0.12)] md:hidden">
+    <!-- Fixed Mobile Bottom Sticky Bar with iOS Home Bar Padding -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-lg pt-2.5 pb-[max(10px,env(safe-area-inset-bottom))] px-3.5 border-t border-sage-border shadow-[0_-8px_30px_rgba(15,54,37,0.12)] md:hidden">
         <div class="flex items-center justify-between gap-2.5">
             <a class="flex-1 flex items-center justify-center gap-1.5 py-3 rounded-full bg-sage-surface text-primary font-label-md text-label-md font-bold border border-sage-border/70" 
                href="tel:+919819820017"
@@ -1555,19 +1563,28 @@
                 if (headlineEl) headlineEl.innerHTML = "Visit Our Ayurveda Clinic in Pimple Saudagar for <span class='text-gold-dark'>Non-Surgical Knee Pain Relief.</span>";
                 if (subheadEl) subheadEl.innerText = "Qualified BAMS doctors. Authentic Kerala Janu Basti & Patra Pinda Sweda for cartilage wear, stiffness & arthritis. Avoid knee surgery. Walk pain-free.";
                 selectConcern('knee');
-                if (waHeroBtn) waHeroBtn.href = "https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20for%20Knee%20Pain%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar.";
+                const kneeWa = "https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20for%20Knee%20Pain%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar.";
+                if (waHeroBtn) waHeroBtn.href = kneeWa;
+                const mWa = document.getElementById('mobileHeroWaBtn');
+                if (mWa) mWa.href = kneeWa;
             } else if (/sciatica|slip|disc|back|kamar|spine|lumbar|gridhrasi/.test(adQ)) {
                 if (preheadEl) preheadEl.innerText = "Karmanya Ayurveda · Spine & Sciatica Decompression Clinic · Pimple Saudagar, Pune";
                 if (headlineEl) headlineEl.innerHTML = "Visit Our Ayurveda Clinic in Pimple Saudagar for <span class='text-gold-dark'>Non-Surgical Sciatica & Slip Disc Relief.</span>";
                 if (subheadEl) subheadEl.innerText = "Qualified BAMS doctors. Authentic Kerala Kati Basti & classical nerve decompression for lumbar disc herniation & back stiffness. Avoid spinal surgery.";
                 selectConcern('back');
-                if (waHeroBtn) waHeroBtn.href = "https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20for%20Back%20Pain%20%2F%20Sciatica%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar.";
+                const backWa = "https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20for%20Back%20Pain%20%2F%20Sciatica%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar.";
+                if (waHeroBtn) waHeroBtn.href = backWa;
+                const mWa = document.getElementById('mobileHeroWaBtn');
+                if (mWa) mWa.href = backWa;
             } else if (/cervical|neck|shoulder|griva|spondylosis/.test(adQ)) {
                 if (preheadEl) preheadEl.innerText = "Karmanya Ayurveda · Cervical & Neck Care Clinic · Pimple Saudagar, Pune";
                 if (headlineEl) headlineEl.innerHTML = "Visit Our Ayurveda Clinic in Pimple Saudagar for <span class='text-gold-dark'>Non-Surgical Cervical & Neck Pain Relief.</span>";
                 if (subheadEl) subheadEl.innerText = "Relieve chronic desk neck strain, cervical spondylosis & radiating shoulder pain with classical Greeva Basti, Nasya & Kerala herbal fomentation.";
                 selectConcern('neck');
-                if (waHeroBtn) waHeroBtn.href = "https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20for%20Cervical%20%2F%20Neck%20Pain%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar.";
+                const neckWa = "https://wa.me/919819820017?text=Namaste!%20I%20would%20like%20to%20book%20an%20in-clinic%20consultation%20for%20Cervical%20%2F%20Neck%20Pain%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar.";
+                if (waHeroBtn) waHeroBtn.href = neckWa;
+                const mWa = document.getElementById('mobileHeroWaBtn');
+                if (mWa) mWa.href = neckWa;
             } else if (/panchakarma|detox|shodhan|virechana|basti/.test(adQ)) {
                 if (preheadEl) preheadEl.innerText = "Karmanya Ayurveda · Classical Panchakarma Centre · Pimple Saudagar, Pune";
                 if (headlineEl) headlineEl.innerHTML = "Visit Our Ayurveda Clinic in Pimple Saudagar for <span class='text-gold-dark'>Authentic Classical Panchakarma.</span>";
