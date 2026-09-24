@@ -266,6 +266,7 @@
                     <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label-lg" href="#protocols">Care Protocols</a>
                     <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label-lg" href="#therapies">Kerala Therapies</a>
                     <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label-lg" href="#physicians">Physicians</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label-lg" href="#video-testimonials">Video Stories</a>
                     <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label-lg" href="#reviews">Patient Stories</a>
                     <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label-lg" href="#location">Location &amp; Timings</a>
                 </nav>
@@ -331,7 +332,7 @@
                             </h1>
 
                             <p id="subHeadline" class="font-body-lg text-sm sm:text-body-lg text-on-surface-variant leading-relaxed">
-                                Qualified BAMS doctors. Authentic Kerala therapies — <strong class="text-on-surface font-semibold">Janu Basti, Kati Basti &amp; Patra Pinda Sweda</strong>. Root-cause diagnosis with precision Nadi Pariksha. No surgery. No heavy painkillers.
+                                Qualified BAMS doctors. Authentic Kerala therapies — <strong class="text-on-surface font-semibold">Janu Basti, Kati Basti &amp; Patra Pinda Sweda</strong>. Root-cause diagnosis with precision Nadi Pariksha. Physician-supervised conservative care.
                             </p>
 
                             <!-- Mobile-First Direct Action Row (Immediately below subhead for instant mobile conversion) -->
@@ -353,7 +354,7 @@
                             </div>
                             <div class="lg:hidden flex items-center justify-center gap-2 py-0.5 text-xs text-on-surface-variant font-medium">
                                 <span class="w-2 h-2 rounded-full bg-opd-active-green"></span>
-                                <span>45-Min Pulse Exam · ₹500 Fee · Zero Waiting Time</span>
+                                <span>45-Min Pulse Exam · ₹500 Fee · Priority OPD Slot</span>
                             </div>
 
                             <!-- Trust Pillar Grid (Compact 2x2 on Mobile) -->
@@ -382,8 +383,8 @@
                                 <div class="p-3.5 bg-surface-container-lowest rounded-xl shadow-sm border border-sage-border/50 flex items-start gap-3">
                                     <span class="material-symbols-outlined text-opd-active-green text-[26px] shrink-0 mt-0.5 fill-1">healing</span>
                                     <div>
-                                        <h4 class="font-label-lg text-label-lg text-on-surface font-bold">Avoid Invasive Surgery</h4>
-                                        <p class="font-body-sm text-body-sm text-on-surface-variant">Proven joint &amp; disc preservation</p>
+                                        <h4 class="font-label-lg text-label-lg text-on-surface font-bold">Joint &amp; Spine Care</h4>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant">Conservative Ayurvedic management</p>
                                     </div>
                                 </div>
                             </div>
@@ -473,15 +474,20 @@
                                                type="text"/>
                                     </div>
 
-                                    <!-- Phone / WhatsApp Field -->
+                                    <!-- Phone / WhatsApp Field with Strict Indian Mobile Validation -->
                                     <div>
                                         <label class="block font-label-sm text-label-sm text-on-surface uppercase mb-1 font-bold" for="phone">WhatsApp / Phone Number *</label>
                                         <input name="phone" 
                                                class="w-full px-3.5 py-2.5 rounded-lg bg-warm-ivory text-on-surface text-base sm:text-body-md border border-sage-border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" 
                                                id="phone" 
-                                               placeholder="+91 98XXX XXXXX" 
+                                               placeholder="10-digit mobile (e.g. 98198 20017)" 
                                                required="" 
-                                               type="tel"/>
+                                               type="tel"
+                                               pattern="^(\+91[\-\s]?)?[0]?[6-9]\d{9}$"
+                                               maxlength="14"
+                                               minlength="10"
+                                               title="Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9"/>
+                                        <p id="phoneErrorMsg" class="text-xs text-error font-semibold mt-1 hidden"></p>
                                     </div>
 
                                     <!-- Preferred Day & Time Slot -->
@@ -535,7 +541,7 @@
                                 <div class="mt-3.5 p-2.5 rounded-lg bg-surface-container-low flex items-center gap-2 border border-sage-border/50">
                                     <span class="material-symbols-outlined text-primary text-[18px] shrink-0">local_hospital</span>
                                     <p class="font-body-sm text-body-sm text-on-surface-variant">
-                                        Walk-ins welcome. Scheduled appointments receive <strong>zero waiting time</strong>.
+                                        Scheduled appointments receive <strong>priority OPD allocation</strong>. Walk-ins accommodated based on availability.
                                     </p>
                                 </div>
                             </div>
@@ -806,11 +812,11 @@
                                 <h3 class="font-headline-md text-xl sm:text-headline-md text-primary font-bold">Non-Surgical Knee Care Protocol</h3>
                                 <p class="font-label-sm text-label-sm text-gold-dark font-bold mt-1">Target: Osteoarthritis, Meniscus Wear, Cartilage Degeneration &amp; Stiffness</p>
                                 <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-                                    A targeted protocol combining warm medicated oil pooling (<strong>Janu Basti</strong>), anti-inflammatory herbal fomentation (<strong>Patra Pinda Sweda</strong>), and classical Asthi-Majja Rasayanas to replenish synovial cushioning and relieve morning pain.
+                                    A targeted protocol combining warm medicated oil pooling (<strong>Janu Basti</strong>), anti-inflammatory herbal fomentation (<strong>Patra Pinda Sweda</strong>), and classical Asthi-Majja Rasayanas to nourish depleted joint tissues and relieve morning stiffness.
                                 </p>
                                 <div class="mt-4 space-y-1.5 font-body-sm text-body-sm text-on-surface">
                                     <p><span class="font-bold text-primary">✓ Key Therapies:</span> Janu Basti, Patra Pinda Sweda, Lepam, Internal Snehana</p>
-                                    <p><span class="font-bold text-primary">✓ Goal:</span> Non-surgical joint preservation &amp; painless walking</p>
+                                    <p><span class="font-bold text-primary">✓ Goal:</span> Conservative joint preservation &amp; improved functional mobility</p>
                                     <p><span class="font-bold text-primary">✓ Typical Timeline:</span> Prescribed post Nadi Pariksha (typically 7–14 days)</p>
                                 </div>
                             </div>
@@ -832,7 +838,7 @@
                                 <h3 class="font-headline-md text-xl sm:text-headline-md text-primary font-bold">Spine &amp; Sciatica Decompression Protocol</h3>
                                 <p class="font-label-sm text-label-sm text-gold-dark font-bold mt-1">Target: L4-L5/S1 Disc Bulge, Sciatic Nerve Shooting Pain &amp; Lumbar Spondylosis</p>
                                 <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-                                    Focused on releasing compressed nerve roots and restoring intervertebral disc hydration through continuous warm herbal oil reservoirs (<strong>Kati Basti</strong>), specialized Dhara, and medicinal Vata-pacifying Basti.
+                                    Focused on releasing compressed nerve roots and easing nerve root compression and soothing lumbar Vata through warm herbal oil pooling (<strong>Kati Basti</strong>), specialized Dhara, and medicinal Vata-pacifying Basti.
                                 </p>
                                 <div class="mt-4 space-y-1.5 font-body-sm text-body-sm text-on-surface">
                                     <p><span class="font-bold text-primary">✓ Key Therapies:</span> Kati Basti, Dhanyamla Dhara, Matra Basti, Spinal Swedana</p>
@@ -884,7 +890,7 @@
                                 <h3 class="font-headline-md text-xl sm:text-headline-md text-primary font-bold">Classical Panchakarma Gut Reset Protocol</h3>
                                 <p class="font-label-sm text-label-sm text-gold-dark font-bold mt-1">Target: Chronic Bloating, Sluggish Digestion, IBS, Ama Toxicity &amp; Fatigue</p>
                                 <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-                                    In Ayurveda, 80% of joint inflammation starts with toxic metabolic waste (<em>Ama</em>) in the gut. This protocol rekindles digestive fire (<em>Agni</em>) and purges systemic metabolic impurities under strict physician oversight.
+                                    In classical Ayurveda, digestive vitality (<em>Agni</em>) and clearing metabolic impurities (<em>Ama</em>) are fundamental to addressing chronic systemic and joint inflammation. This protocol focuses on internal cleansing and metabolic rejuvenation.
                                 </p>
                                 <div class="mt-4 space-y-1.5 font-body-sm text-body-sm text-on-surface">
                                     <p><span class="font-bold text-primary">✓ Key Therapies:</span> Deepana-Pachana, Abhyangam, Bashpa Sweda, Virechana / Basti</p>
@@ -1172,8 +1178,8 @@
                             <div class="flex-1 flex flex-col justify-between">
                                 <div>
                                     <div class="flex items-center justify-between">
-                                        <span class="font-label-sm text-label-sm text-opd-active-green font-bold uppercase tracking-wider">🟢 In OPD Today</span>
-                                        <span class="w-2.5 h-2.5 rounded-full bg-opd-active-green animate-pulse"></span>
+                                        <span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Senior Physician · Women's &amp; Spine Care</span>
+                                        <span class="font-label-sm text-xs text-gold-dark font-semibold">OPD Mon–Sun</span>
                                     </div>
                                     <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mt-1 font-bold">Dr. Tejasvi Mulik</h3>
                                     <p class="font-label-md text-label-md text-on-surface font-semibold">BAMS · Senior Ayurveda Physician</p>
@@ -1199,6 +1205,127 @@
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+
+                        <!-- 9.5 REAL PATIENT VIDEO TESTIMONIALS (Instagram Reels Embeds) -->
+            <section class="py-12 sm:py-space-xl bg-warm-ivory border-t border-sage-border/60" id="video-testimonials">
+                <div class="max-w-[1240px] mx-auto px-4 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-space-lg">
+                        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-light text-gold-dark font-label-sm text-label-sm uppercase font-bold border border-gold-dark/20 mb-3">
+                            <span class="material-symbols-outlined text-[16px] text-secondary fill-1">play_circle</span>
+                            <span>Patient Video Stories</span>
+                        </div>
+                        <h2 class="font-headline-xl text-2xl sm:text-headline-xl text-primary font-bold">
+                            Watch Real Patient Recovery Stories
+                        </h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+                            Hear directly from patients who received physician-led Kerala Ayurvedic care at Karmanya Ayurveda, Pimple Saudagar. Tap play to watch their journeys right here.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-space-lg">
+                        
+                        <!-- Video Reel 1: DNzYOICUJW7 -->
+                        <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-sage-border flex flex-col hover:shadow-md transition-all">
+                            <div class="p-3 bg-surface-container-low border-b border-sage-border/50 flex items-center justify-between">
+                                <span class="font-label-sm text-xs text-primary font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span class="w-2 h-2 rounded-full bg-opd-active-green"></span>
+                                    Knee Joint Care Story
+                                </span>
+                                <a href="https://www.instagram.com/reel/DNzYOICUJW7/" target="_blank" rel="noopener noreferrer" class="text-xs text-gold-dark font-semibold hover:underline flex items-center gap-0.5">
+                                    <span>Watch on Instagram</span>
+                                    <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+                                </a>
+                            </div>
+                            <div class="relative w-full aspect-[9/16] bg-black">
+                                <iframe src="https://www.instagram.com/reel/DNzYOICUJW7/embed/" 
+                                        class="w-full h-full border-0"
+                                        scrolling="no" 
+                                        allowtransparency="true" 
+                                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                </iframe>
+                            </div>
+                            <div class="p-4 bg-surface-container-lowest flex-1 flex flex-col justify-between">
+                                <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                                    Patient shares recovery journey with Janu Basti and classical Kerala therapies for chronic joint stiffness.
+                                </p>
+                                <div class="pt-3 border-t border-sage-border/40 mt-3 flex items-center justify-between">
+                                    <span class="text-[11px] text-primary font-bold">Janu Basti Therapy</span>
+                                    <a href="#book-consultation" class="text-xs font-bold text-primary hover:text-gold-dark">Book Evaluation →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video Reel 2: DFFbgpbt85n -->
+                        <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-sage-border flex flex-col hover:shadow-md transition-all">
+                            <div class="p-3 bg-surface-container-low border-b border-sage-border/50 flex items-center justify-between">
+                                <span class="font-label-sm text-xs text-primary font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span class="w-2 h-2 rounded-full bg-opd-active-green"></span>
+                                    Spine &amp; Sciatica Care
+                                </span>
+                                <a href="https://www.instagram.com/reel/DFFbgpbt85n/" target="_blank" rel="noopener noreferrer" class="text-xs text-gold-dark font-semibold hover:underline flex items-center gap-0.5">
+                                    <span>Watch on Instagram</span>
+                                    <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+                                </a>
+                            </div>
+                            <div class="relative w-full aspect-[9/16] bg-black">
+                                <iframe src="https://www.instagram.com/reel/DFFbgpbt85n/embed/" 
+                                        class="w-full h-full border-0"
+                                        scrolling="no" 
+                                        allowtransparency="true" 
+                                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                </iframe>
+                            </div>
+                            <div class="p-4 bg-surface-container-lowest flex-1 flex flex-col justify-between">
+                                <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                                    Patient testimonial on non-surgical lumbar spine decompression and chronic sciatica relief under Dr. Irshad.
+                                </p>
+                                <div class="pt-3 border-t border-sage-border/40 mt-3 flex items-center justify-between">
+                                    <span class="text-[11px] text-primary font-bold">Kati Basti Protocol</span>
+                                    <a href="#book-consultation" class="text-xs font-bold text-primary hover:text-gold-dark">Book Evaluation →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video Reel 3: DHFwJAGtggY -->
+                        <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-sage-border flex flex-col hover:shadow-md transition-all">
+                            <div class="p-3 bg-surface-container-low border-b border-sage-border/50 flex items-center justify-between">
+                                <span class="font-label-sm text-xs text-primary font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span class="w-2 h-2 rounded-full bg-opd-active-green"></span>
+                                    In-Clinic Experience
+                                </span>
+                                <a href="https://www.instagram.com/reel/DHFwJAGtggY/" target="_blank" rel="noopener noreferrer" class="text-xs text-gold-dark font-semibold hover:underline flex items-center gap-0.5">
+                                    <span>Watch on Instagram</span>
+                                    <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+                                </a>
+                            </div>
+                            <div class="relative w-full aspect-[9/16] bg-black">
+                                <iframe src="https://www.instagram.com/reel/DHFwJAGtggY/embed/" 
+                                        class="w-full h-full border-0"
+                                        scrolling="no" 
+                                        allowtransparency="true" 
+                                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                </iframe>
+                            </div>
+                            <div class="p-4 bg-surface-container-lowest flex-1 flex flex-col justify-between">
+                                <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                                    First-hand patient review on doctor consultation, Nadi Pariksha diagnosis, and authentic treatment quality.
+                                </p>
+                                <div class="pt-3 border-t border-sage-border/40 mt-3 flex items-center justify-between">
+                                    <span class="text-[11px] text-primary font-bold">Clinical Nadi Pariksha</span>
+                                    <a href="#book-consultation" class="text-xs font-bold text-primary hover:text-gold-dark">Book Evaluation →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <p class="text-xs text-on-surface-variant italic">
+                            * Case recordings and patient testimonials reflect individual experiences under medical supervision. Healing rates depend on individual constitution (Prakriti), chronicity, and regimen compliance.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -1362,7 +1489,7 @@
                                 <span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
                             </summary>
                             <p class="font-body-md text-body-md text-on-surface-variant mt-3 pt-2 border-t border-sage-border/50 leading-relaxed">
-                                Treatment duration depends on your individual Prakriti, scan severity, and pain chronicity. Typically, a focused course of 7 to 14 sessions is prescribed post Nadi Pariksha, followed by restorative internal herbal medicines.
+                                Treatment duration depends on your individual Prakriti, scan severity, and pain chronicity. In authentic Kerala Ayurveda, session frequency and course duration are determined solely after your in-person clinical exam and Nadi Pariksha. Some patients begin with a 7-day intensive relief phase, while chronic degenerative conditions require structured multi-stage management.
                             </p>
                         </details>
 
@@ -1384,7 +1511,7 @@
                                 <span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
                             </summary>
                             <p class="font-body-md text-body-md text-on-surface-variant mt-3 pt-2 border-t border-sage-border/50 leading-relaxed">
-                                We strongly advise booking your consultation in advance to guarantee zero waiting time with Dr. Irshad or Dr. Tejasvi. While walk-in patients are accommodated based on daily OPD capacity, scheduled appointments receive clinical priority.
+                                We strongly advise booking your consultation in advance to ensure priority OPD allocation with our consulting physicians. While walk-ins are accommodated according to daily clinic capacity, prior appointments ensure prompt attention.
                             </p>
                         </details>
                     </div>
@@ -1612,40 +1739,134 @@
         }
         checkboxes.forEach(cb => cb.addEventListener('change', updateSymptomMessage));
 
-        // 4. Form Submission Handler to Google Sheets & Redirect
+        // 4. Robust Form Submission with Validation, Local Backup & Zero-Loss WhatsApp Fallback
         const form = document.getElementById('leadForm');
         const submitBtn = document.getElementById('submitBtn');
+        const phoneInput = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneErrorMsg');
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyPsbTHLlJjdpxlqqgv0Pbp5pkoH6XoXCi8Y0iIt0HmYhahJ3cqoUB3Lbtleh4jEPUDnA/exec';
 
         if (form) {
-            form.addEventListener('submit', e => {
+            form.addEventListener('submit', async e => {
                 e.preventDefault();
+                
+                // Strict 10-Digit Indian Mobile Number Validation
+                const rawPhone = phoneInput.value.trim();
+                const cleanPhone = rawPhone.replace(/[\s\-\+]/g, '').replace(/^91/, '').replace(/^0/, '');
+                
+                if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+                    if (phoneError) {
+                        phoneError.textContent = "Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.";
+                        phoneError.classList.remove('hidden');
+                    }
+                    phoneInput.classList.add('border-error');
+                    phoneInput.focus();
+                    return;
+                }
+                
+                if (phoneError) phoneError.classList.add('hidden');
+                phoneInput.classList.remove('border-error');
+
+                const nameInput = document.getElementById('fullName');
+                const name = nameInput ? nameInput.value.trim() : 'Patient';
+                const checkedRadio = form.querySelector('input[name="concern"]:checked');
+                const concernVal = checkedRadio ? checkedRadio.value : 'General';
+                const concernLabel = checkedRadio && checkedRadio.parentElement ? checkedRadio.parentElement.innerText.trim() : concernVal;
+                const slotSelect = document.getElementById('slot');
+                const timeSlot = slotSelect ? slotSelect.value : 'Flexible';
+
+                // Save Lead in LocalStorage Immediately (Never lose lead data)
+                const leadRecord = {
+                    name: name,
+                    phone: cleanPhone,
+                    concern: concernLabel,
+                    timeslot: timeSlot,
+                    url: window.location.href,
+                    timestamp: new Date().toISOString()
+                };
+                try {
+                    const saved = JSON.parse(localStorage.getItem('karmanya_leads') || '[]');
+                    saved.push(leadRecord);
+                    localStorage.setItem('karmanya_leads', JSON.stringify(saved));
+                } catch(err){}
+
                 const originalBtnText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>Submitting Request...</span>';
+                submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>Booking Slot...</span>';
                 submitBtn.disabled = true;
 
-                // Fire Google Ads Conversion
-                if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {'send_to': 'AW-18375933203/91coCMuK5uscEJP6qbpE'});
-                }
-
-                // Fire Meta Pixel Lead
-                if (typeof fbq === 'function') {
-                    fbq('track', 'Lead');
-                }
-
                 const formData = new FormData(form);
+                formData.set('phone', cleanPhone);
 
-                fetch(scriptURL, { method: 'POST', body: formData })
-                    .then(response => {
-                        console.log('Lead submitted successfully:', response);
-                        window.location.href = "thank-you.html";
-                    })
-                    .catch(error => {
-                        console.error('Submission error:', error);
-                        // Still redirect to thank-you page to avoid blocking patient
-                        window.location.href = "thank-you.html";
+                let isSuccess = false;
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+                try {
+                    const response = await fetch(scriptURL, { 
+                        method: 'POST', 
+                        body: formData,
+                        signal: controller.signal
                     });
+                    clearTimeout(timeoutId);
+                    if (response.ok) {
+                        isSuccess = true;
+                    }
+                } catch(err) {
+                    clearTimeout(timeoutId);
+                    console.warn('Backend endpoint unavailable. Activating direct WhatsApp reservation protocol.');
+                }
+
+                if (isSuccess) {
+                    // Only fire conversions when the database write actually succeeded
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'conversion', {'send_to': 'AW-18375933203/91coCMuK5uscEJP6qbpE'});
+                    }
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+                    window.location.href = "thank-you.html";
+                } else {
+                    // Display Zero-Loss Fallback Card directly inside form
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+
+                    const existingFallback = document.getElementById('leadFallbackAlert');
+                    if (existingFallback) existingFallback.remove();
+
+                    const waText = encodeURIComponent(`Namaste! I would like to confirm my consultation at Karmanya Ayurveda, Pimple Saudagar.\n\n• Name: ${name}\n• Phone: ${cleanPhone}\n• Concern: ${concernLabel}\n• Preferred Time: ${timeSlot}`);
+
+                    const fallbackCard = document.createElement('div');
+                    fallbackCard.id = 'leadFallbackAlert';
+                    fallbackCard.className = 'mt-3 p-4 bg-amber-50 border-2 border-amber-400 rounded-xl text-left shadow-md';
+                    fallbackCard.innerHTML = `
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-amber-600 text-[24px] shrink-0 mt-0.5">verified_user</span>
+                            <div>
+                                <h4 class="font-bold text-primary text-[15px]">Details Saved! One Final Step to Confirm</h4>
+                                <p class="text-xs text-gray-700 mt-1 leading-relaxed">
+                                    To guarantee your zero-wait slot immediately with Dr. Irshad or Dr. Tejasvi, tap below to send your pre-filled details directly on WhatsApp:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-3 flex flex-col gap-2">
+                            <a href="https://wa.me/919819820017?text=${waText}" 
+                               target="_blank"
+                               onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18375933203/91coCMuK5uscEJP6qbpE'});} if(typeof fbq==='function'){fbq('track','Lead');}"
+                               class="py-3 px-4 rounded-xl bg-opd-active-green text-white font-bold flex items-center justify-center gap-2 shadow-sm text-sm active:scale-95 transition-transform">
+                                <span class="material-symbols-outlined text-[18px]">chat</span>
+                                <span>Confirm My Slot via WhatsApp (1-Tap) →</span>
+                            </a>
+                            <a href="tel:+919819820017" 
+                               onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18375933203/91coCMuK5uscEJP6qbpE'});}"
+                               class="py-2.5 px-4 rounded-xl bg-primary text-white font-bold flex items-center justify-center gap-2 text-xs active:scale-95 transition-transform">
+                                <span class="material-symbols-outlined text-[18px]">call</span>
+                                <span>Call Clinic Directly: +91 98198 20017</span>
+                            </a>
+                        </div>
+                    `;
+                    form.parentNode.insertBefore(fallbackCard, form.nextSibling);
+                    fallbackCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             });
         }
 
