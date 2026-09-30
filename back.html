@@ -1033,8 +1033,8 @@ footer a{color:var(--muted)}
     var send;
     if (KA.isProd || C.sendFormOutsideProduction) {
       var ctrl = ('AbortController' in window) ? new AbortController() : null;
-      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
-      send = fetch(C.formEndpoint, { method: 'POST', body: fd, signal: ctrl ? ctrl.signal : undefined })
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
+      send = fetch(C.formEndpoint, { method: 'POST', body: fd, mode: 'no-cors', signal: ctrl ? ctrl.signal : undefined })
         .then(function (r) { clearTimeout(timer); return true; })
         .catch(function () { clearTimeout(timer); return false; });
     } else {
@@ -1049,7 +1049,7 @@ footer a{color:var(--muted)}
         if (C.thankYouUrl) { location.href = C.thankYouUrl; return; }
         // Automatically redirect to WhatsApp after form submission
         var text = 'Namaste! I would like to book an assessment at Karmanya Ayurveda, Pimple Saudagar.\nName: ' + name + '\nMobile: ' + phone + '\nFor: ' + forWhom + '\nPreferred time: ' + slotLabel;
-        window.location.href = wa(text);
+        setTimeout(function() { window.location.href = wa(text); }, 800);
         
         // Fallback UI just in case the redirect is blocked
         document.getElementById('formWrap').hidden = true;
