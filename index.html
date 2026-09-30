@@ -16,7 +16,6 @@
 
   if (condition !== 'knee') {
     var xhr = new XMLHttpRequest();
-    // Use async=false to block rendering until the correct page is fetched
     xhr.open('GET', '/' + condition + '.html', false);
     try {
       xhr.send();
@@ -76,7 +75,7 @@
    ========================================================================= */
 window.KA_CONFIG = {
   whatsappNumber: '919819820017',
-  formEndpoint: 'https://script.google.com/macros/s/AKfycbyPsbTHLlJjdpxlqqgv0Pbp5pkoH6XoXCi8Y0iIt0HmYhahJ3cqoUB3Lbtleh4jEPUDnA/exec',
+  formEndpoint: 'https://script.google.com/macros/s/AKfycbzhvbwKqfnAwPSDmRl-8stVBW1IOyHC1-i4cpOHckCUTdEg2FL6em6i8ESgc-4IQO_Y/exec',
 
   // Leave empty to show the confirmation on this page (recommended).
   // If you set a thank-you URL, remove the Lead / conversion tags from that page,
@@ -584,7 +583,7 @@ footer a{color:var(--muted)}
           <h2>Book your knee assessment</h2>
           <p class="form-sub">₹500, about 45 minutes with a BAMS doctor. Nothing to pay now.</p>
 
-          <form id="leadForm" action="https://script.google.com/macros/s/AKfycbyPsbTHLlJjdpxlqqgv0Pbp5pkoH6XoXCi8Y0iIt0HmYhahJ3cqoUB3Lbtleh4jEPUDnA/exec" method="post" novalidate>
+          <form id="leadForm" action="https://script.google.com/macros/s/AKfycbzhvbwKqfnAwPSDmRl-8stVBW1IOyHC1-i4cpOHckCUTdEg2FL6em6i8ESgc-4IQO_Y/exec" method="post" novalidate>
             <input type="hidden" name="concern" value="knee">
             <input type="hidden" name="symptoms" id="symptomsField" value="">
 
@@ -1061,9 +1060,9 @@ footer a{color:var(--muted)}
     var send;
     if (KA.isProd || C.sendFormOutsideProduction) {
       var ctrl = ('AbortController' in window) ? new AbortController() : null;
-      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
-      send = fetch(C.formEndpoint, { method: 'POST', body: fd, signal: ctrl ? ctrl.signal : undefined })
-        .then(function (r) { clearTimeout(timer); return r.ok; })
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
+      send = fetch(C.formEndpoint, { method: 'POST', body: fd, mode: 'no-cors', signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) { clearTimeout(timer); return true; })
         .catch(function () { clearTimeout(timer); return false; });
     } else {
       var preview = {}; fd.forEach(function (v, k) { preview[k] = v; });
@@ -1075,6 +1074,11 @@ footer a{color:var(--muted)}
       if (sent) {
         trackLead(leadId, 'form');
         if (C.thankYouUrl) { location.href = C.thankYouUrl; return; }
+        // Automatically redirect to WhatsApp after form submission
+        var text = 'Namaste! I would like to book an assessment at Karmanya Ayurveda, Pimple Saudagar.\nName: ' + name + '\nMobile: ' + phone + '\nFor: ' + forWhom + '\nPreferred time: ' + slotLabel;
+        setTimeout(function() { window.location.href = wa(text); }, 800);
+        
+        // Fallback UI just in case the redirect is blocked
         document.getElementById('formWrap').hidden = true;
         var done = document.getElementById('doneWrap');
         document.getElementById('doneTitle').textContent = 'Request received, ' + name.split(' ')[0] + '.';
