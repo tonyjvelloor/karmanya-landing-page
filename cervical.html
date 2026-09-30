@@ -1047,6 +1047,11 @@ footer a{color:var(--muted)}
       if (sent) {
         trackLead(leadId, 'form');
         if (C.thankYouUrl) { location.href = C.thankYouUrl; return; }
+        // Automatically redirect to WhatsApp after form submission
+        var text = 'Namaste! I would like to book an assessment at Karmanya Ayurveda, Pimple Saudagar.\nName: ' + name + '\nMobile: ' + phone + '\nFor: ' + forWhom + '\nPreferred time: ' + slotLabel;
+        window.location.href = wa(text);
+        
+        // Fallback UI just in case the redirect is blocked
         document.getElementById('formWrap').hidden = true;
         var done = document.getElementById('doneWrap');
         document.getElementById('doneTitle').textContent = 'Request received, ' + name.split(' ')[0] + '.';
