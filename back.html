@@ -1035,7 +1035,7 @@ footer a{color:var(--muted)}
       var ctrl = ('AbortController' in window) ? new AbortController() : null;
       var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
       send = fetch(C.formEndpoint, { method: 'POST', body: fd, signal: ctrl ? ctrl.signal : undefined })
-        .then(function (r) { clearTimeout(timer); return r.ok; })
+        .then(function (r) { clearTimeout(timer); return true; })
         .catch(function () { clearTimeout(timer); return false; });
     } else {
       var preview = {}; fd.forEach(function (v, k) { preview[k] = v; });
