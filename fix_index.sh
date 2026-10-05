@@ -1,4 +1,7 @@
-cat << 'ROUTER' > index.html
+#!/bin/bash
+
+# Extract the script block
+cat << 'ROUTER' > router.tmp
 <!doctype html>
 <html lang="en-IN">
 <head>
@@ -24,10 +27,15 @@ cat << 'ROUTER' > index.html
         document.open();
         document.write(xhr.responseText);
         document.close();
+        window.stop();
       }
     } catch(e) {}
   }
 })();
 </script>
 ROUTER
-cat knee.html | sed '1,3d' >> index.html
+
+# Append the rest of knee.html starting from line 4
+tail -n +4 /Users/tonyvelloor/.gemini/antigravity/scratch/karmanya-landing-page/knee.html >> router.tmp
+
+mv router.tmp /Users/tonyvelloor/.gemini/antigravity/scratch/karmanya-landing-page/index.html
