@@ -1110,8 +1110,8 @@ footer a{color:var(--muted)}
     if (KA.isProd || C.sendFormOutsideProduction) {
       var ctrl = ('AbortController' in window) ? new AbortController() : null;
       var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
-      send = fetch(C.formEndpoint, { method: 'POST', body: fd, signal: ctrl ? ctrl.signal : undefined })
-        .then(function (r) { clearTimeout(timer); return r.ok; })
+      send = fetch(C.formEndpoint, { method: 'POST', body: fd, mode: 'no-cors', signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) { clearTimeout(timer); return true; })
         .catch(function () { clearTimeout(timer); return false; });
     } else {
       var preview = {}; fd.forEach(function (v, k) { preview[k] = v; });
