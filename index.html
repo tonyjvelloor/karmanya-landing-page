@@ -605,10 +605,20 @@ footer a{color:var(--muted)}
 <section class="hero">
   <div class="wrap hero-grid">
     <!-- Swap for a real photo of Janu Basti at the clinic when you have one (same framing: oil in the dough ring on a knee). -->
-<figure class="hero-media" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); margin-bottom: 20px; background: #000;">
-      <!-- TODO: Replace 'YOUR_YOUTUBE_ID' with the actual YouTube Video ID of the testimonial -->
-      <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID?rel=0&showinfo=0&autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </figure>
+<div class="hero-media reels-carousel" style="display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; scrollbar-width: none; -ms-overflow-style: none;">
+      <div style="flex: 0 0 300px; scroll-snap-align: start; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); background: #fff;">
+        <iframe src="https://www.instagram.com/reel/DHFwJAGtggY/embed/" width="300" height="540" frameborder="0" scrolling="no" allowtransparency="true" style="border: none; display: block;"></iframe>
+      </div>
+      <div style="flex: 0 0 300px; scroll-snap-align: start; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); background: #fff;">
+        <iframe src="https://www.instagram.com/reel/DFFbgpbt85n/embed/" width="300" height="540" frameborder="0" scrolling="no" allowtransparency="true" style="border: none; display: block;"></iframe>
+      </div>
+      <div style="flex: 0 0 300px; scroll-snap-align: start; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); background: #fff;">
+        <iframe src="https://www.instagram.com/reel/DNzYOICUJW7/embed/" width="300" height="540" frameborder="0" scrolling="no" allowtransparency="true" style="border: none; display: block;"></iframe>
+      </div>
+    </div>
+    <style>
+      .reels-carousel::-webkit-scrollbar { display: none; }
+    </style>
 
     <div class="hero-copy">
       <p class="kicker">Knee care clinic in Pimple Saudagar, Pune</p>
