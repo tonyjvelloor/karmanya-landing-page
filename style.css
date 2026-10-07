@@ -811,3 +811,35 @@ a {
         text-align: center;
     }
 }
+
+/* Desktop Floating WhatsApp */
+.floating-wa-desktop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25D366;
+  color: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+  z-index: 999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.floating-wa-desktop svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+.floating-wa-desktop:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.6);
+  color: white;
+}
+@media (max-width: 959px) {
+  .floating-wa-desktop { display: none; }
+}
