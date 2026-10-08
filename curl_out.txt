@@ -1,0 +1,19 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    26    0     0  100    26      0     21  0:00:01  0:00:01 --:--:--    21100    26    0     0  100    26      0     11  0:00:02  0:00:02 --:--:--    11100    26    0     0  100    26      0      8  0:00:03  0:00:03 --:--:--     8100    26    0     0  100    26      0      6  0:00:04  0:00:04 --:--:--     6100    26    0     0  100    26      0      4  0:00:06  0:00:05  0:00:01     4100    26    0     0  100    26      0      4  0:00:06  0:00:06 --:--:--     0100    26    0     0  100    26      0      3  0:00:08  0:00:07  0:00:01     0100    26    0     0  100    26      0      3  0:00:08  0:00:08 --:--:--     0100    26    0     0  100    26      0      2  0:00:13  0:00:09  0:00:04     0100    26    0     0  100    26      0      2  0:00:13  0:00:10  0:00:03     0100    26    0     0  100    26      0      2  0:00:13  0:00:11  0:00:02     0100    26    0     0  100    26      0      2  0:00:13  0:00:12  0:00:01     0100    26    0     0  100    26      0      1  0:00:26  0:00:13  0:00:13     0100    26    0     0  100    26      0      1  0:00:26  0:00:14  0:00:12     0100    26    0     0  100    26      0      1  0:00:26  0:00:15  0:00:11     0100    26    0     0  100    26      0      1  0:00:26  0:00:16  0:00:10     0100    26    0     0  100    26      0      1  0:00:26  0:00:17  0:00:09     0100    26    0     0  100    26      0      1  0:00:26  0:00:17  0:00:09     0
+HTTP/2 302 
+content-type: application/binary
+access-control-allow-origin: *
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: Mon, 01 Jan 1990 00:00:00 GMT
+date: Thu, 08 Oct 2026 06:44:43 GMT
+location: https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnQ5m0Vw-zc2y0aXktmM31FFDKZ4csm7IDrnZZvTmA3EJ4Xd_Tu4vdJbhpS7_rJa2-NqsPBJp9bPFgYyfn8vMi2JAMHPgVn7wGbpDJrH9pDl1dC53P3vLe51bkP73KZdRivmvDbfnBHYhIsL7F0hLNcejMJ5moB_wdf3eF5Saqzd5mjrgBZJx19viYjOoqHhyQ_8uPjy4pT2_m3HJzqVksqD7E1NwKD2Mdaa6n0GxBs3NTsgvSBE_8CMJjHg9RS7ipGBzwGxLBVriv8TWB7CW4Nfy16sNQ&lib=MbOvtD3afKWF8j-wwHAFiqCOoJz7hZlKj
+x-frame-options: SAMEORIGIN
+content-security-policy: frame-ancestors 'self'
+server: ESF
+content-length: 0
+x-xss-protection: 0
+x-content-type-options: nosniff
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
