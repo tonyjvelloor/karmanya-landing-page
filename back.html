@@ -533,6 +533,9 @@ footer a{color:var(--muted)}
   ]
 }
 </script>
+<!-- ChatGPT Pixel -->
+<script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"QD7NJpfsYPogKPpJnE1gqf",debug:true});</script>
+<!-- End ChatGPT Pixel -->
 </head>
 <body>
 
@@ -1027,6 +1030,7 @@ footer a{color:var(--muted)}
   function trackLead(id, method) {
     if (leadTracked[id]) return;
     leadTracked[id] = true;
+    if (typeof window.oaiq === 'function') window.oaiq('measure', 'lead_created', { content_name: 'Knee assessment' }, { event_id: id });
     gtag('event', 'conversion', { send_to: C.adsId + '/' + C.adsLeadLabel, transaction_id: id });
     gtag('event', 'generate_lead', { send_to: C.ga4Id, method: method, page_angle: KA.angle });
     fbq('track', 'Lead', { content_name: 'spine & posture assessment' }, { eventID: id });
