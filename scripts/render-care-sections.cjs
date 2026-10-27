@@ -86,9 +86,9 @@ function cleanClaims(html, kind) {
   html = html.replace(/<ul class="proof">[\s\S]*?<\/ul>/, '<ul class="proof"><li><span><strong>BAMS doctor</strong> assessment</span></li><li><span><strong>Authentic Kerala Ayurveda</strong> therapies</span></li><li><span>Open <strong>all 7 days</strong></span></li></ul>');
   html = html.replace(/<p class="offer">[\s\S]*?<\/p>/, '<p class="offer"><strong>₹500 in-clinic assessment</strong>, about 45 minutes. Discuss your symptoms and appropriate care with a BAMS doctor. Or call <a href="tel:+919819820017" data-loc="hero_text">+91 98198 20017</a>.</p>');
   html = html.replace(/(<a\b(?=[^>]*\bdata-wa\b)[^>]*\bhref=")[^"]+("[^>]*>)/g, '$1https://wa.me/919819820017?text=' + encodeURIComponent(defaultWa) + '$2');
-  html = html.replace(/<p class="bio">[\s\S]*?<\/p>/, `<p class="bio">Dr. Tejasvi Mulik is a BAMS Ayurvedic physician at Karmanya. Your consultation includes discussion of symptoms, relevant reports and an individual care plan using authentic Kerala Ayurveda therapies when appropriate.</p>`);
-  html = html.replace(/BAMS • Senior Ayurvedic Physician & Nadi Pariksha Specialist/g, 'BAMS • Ayurvedic Physician');
-  html = html.replace(/<h2>The doctor who will examine you<\/h2>/g, '<h2>Doctor-led care at Karmanya</h2>');
+  // Keep landing pages independent of a named doctor's availability.
+  html = html.replace(/\n      <div class="docs-line">[\s\S]*?<\/div>\s*<p>[\s\S]*?<\/p>\s*<\/div>/, '');
+  html = html.replace(/<!-- DOCTORS -->[\s\S]*?(?=<!-- REVIEWS -->)/, '');
   html = html.replace(/No franchise branches, no diluted care\./g, 'One clinic in Pimple Saudagar.');
   html = html.replace(/<h3>Likely a good fit if you have<\/h3>/g, '<h3>Topics to discuss at your consultation</h3>');
   html = html.replace(/<b>Genuine Kerala medicines<\/b><span>[^<]*<\/span>/g, '<b>Classical Kerala Ayurveda</b><span>Doctor-selected therapies rooted in Kerala’s Ayurvedic tradition.</span>');
