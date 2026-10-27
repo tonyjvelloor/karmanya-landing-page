@@ -47,7 +47,7 @@
    ========================================================================= */
 window.KA_CONFIG = {
   whatsappNumber: '919819820017',
-  formEndpoint: 'https://script.google.com/macros/s/AKfycbzhvbwKqfnAwPSDmRl-8stVBW1IOyHC1-i4cpOHckCUTdEg2FL6em6i8ESgc-4IQO_Y/exec',
+  formEndpoint: '/api/consultation',
 
   // Leave empty to show the confirmation on this page (recommended).
   // If you set a thank-you URL, remove the Lead / conversion tags from that page,
@@ -59,7 +59,7 @@ window.KA_CONFIG = {
   productionHosts: ['karmanyaayurveda.com'],
   sendFormOutsideProduction: false,
 
-  gtmId: 'GTM-NP2DTL98',            // set to '' if GTM also fires GA4 / Ads tags (avoids double counting)
+  gtmId: '', // Direct tags own conversion measurement on booking pages.
   ga4Id: 'G-QWH0NSNLVE',
   adsId: 'AW-18375933203',
   adsLeadLabel: '91coCMuK5uscEJP6qbpE',   // form lead = primary conversion
@@ -119,6 +119,7 @@ window.KA_ANGLES = {
 
   if (isProd) {
     window.gtag = function () { window.dataLayer.push(arguments); };
+    gtag('consent', 'default', {ad_user_data: 'denied', ad_personalization: 'denied'});
     gtag('js', new Date());
     if (C.adsId) gtag('config', C.adsId);
     if (C.ga4Id) gtag('config', C.ga4Id);
@@ -642,7 +643,8 @@ footer a{color:var(--muted)}
           <h2>Book your cervical & posture assessment</h2>
           <p class="form-sub">₹500, about 45 minutes with a BAMS doctor. Nothing to pay now.</p>
 
-          <form id="leadForm" action="https://script.google.com/macros/s/AKfycbzhvbwKqfnAwPSDmRl-8stVBW1IOyHC1-i4cpOHckCUTdEg2FL6em6i8ESgc-4IQO_Y/exec" method="post" novalidate>
+          <form id="leadForm" action="/api/consultation" method="post" novalidate>
+            <input type="hidden" name="website" value="">
             <input type="hidden" name="concern" value="neck">
             <input type="hidden" name="symptoms" id="symptomsField" value="">
 
@@ -657,7 +659,7 @@ footer a{color:var(--muted)}
 
             <div class="field">
               <label for="fullName">Patient's name</label>
-              <input class="input" id="fullName" name="name" type="text" autocomplete="name" required aria-describedby="nameError">
+              <input class="input" id="fullName" name="name" type="text" maxlength="120" autocomplete="name" required aria-describedby="nameError">
               <p class="error" id="nameError" hidden></p>
             </div>
 
@@ -675,7 +677,7 @@ footer a{color:var(--muted)}
               </select>
             </div>
 
-            <div id="sendError" hidden></div>
+            <div id="sendError" role="alert" aria-live="polite" hidden></div>
 
             <button class="btn btn-primary btn-block submit" id="submitBtn" type="submit">Request my slot</button>
             <p class="form-foot">Your number is only used to arrange your visit. Prefer to chat? <a data-wa data-loc="form" href="https://wa.me/919819820017?text=Namaste!%20I'd%20like%20to%20book%20a%20cervical%20assessment%20at%20Karmanya%20Ayurveda%2C%20Pimple%20Saudagar.%20Please%20share%20an%20available%20slot.">WhatsApp us</a></p>
@@ -972,6 +974,7 @@ footer a{color:var(--muted)}
   <a class="btn btn-primary" href="#book"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg>Book</a>
 </nav>
 
+<script src="/booking-delivery.js"></script>
 <script>
 (function () {
   'use strict';
@@ -1016,18 +1019,19 @@ footer a{color:var(--muted)}
   function trackContact(channel, loc) {
     fbq('track', 'Contact', { content_name: 'cervical & posture assessment', channel: channel });
     if (typeof window.oaiq === 'function') window.oaiq('measure', 'contact', { channel: channel });
-    gtag('event', channel === 'whatsapp' ? 'whatsapp_click' : 'call_click', { send_to: C.ga4Id, link_location: loc, page_angle: KA.angle });
+    gtag('event', channel === 'whatsapp' ? 'whatsapp_click' : 'call_click', { send_to: C.ga4Id, link_location: loc });
     var label = channel === 'whatsapp' ? C.adsWhatsappLabel : C.adsCallLabel;
     if (label) gtag('event', 'conversion', { send_to: C.adsId + '/' + label });
   }
   var leadTracked = {};
   function trackLead(id, method) {
-    if (leadTracked[id]) return;
+    if (!KA.isProd || leadTracked[id]) return;
     leadTracked[id] = true;
-    if (typeof window.oaiq === 'function') window.oaiq('measure', 'lead_created', { content_name: 'cervical & posture assessment' }, { event_id: id });
-    gtag('event', 'conversion', { send_to: C.adsId + '/' + C.adsLeadLabel, transaction_id: id });
-    gtag('event', 'generate_lead', { send_to: C.ga4Id, method: method, page_angle: KA.angle });
-    fbq('track', 'Lead', { content_name: 'cervical & posture assessment' }, { eventID: id });
+    // One verified form action; no name, phone, symptoms or condition in analytics.
+    try { gtag('event', 'conversion', { send_to: C.adsId + '/' + C.adsLeadLabel, transaction_id: id }); } catch (_) {}
+    try { gtag('event', 'generate_lead', { send_to: C.ga4Id, method: method }); } catch (_) {}
+    try { fbq('track', 'Lead', {}, { eventID: id }); } catch (_) {}
+    try { if (typeof window.oaiq === 'function') window.oaiq('measure', 'lead_created', {}, { event_id: id }); } catch (_) {}
   }
 
   document.addEventListener('click', function (e) {
@@ -1035,7 +1039,6 @@ footer a{color:var(--muted)}
     if (!a) return;
     var href = a.getAttribute('href');
     var loc = a.getAttribute('data-loc') || 'page';
-    if (a.hasAttribute('data-lead-id')) { trackLead(a.getAttribute('data-lead-id'), 'whatsapp_fallback'); return; }
     if (href.indexOf('wa.me/') > -1) trackContact('whatsapp', loc);
     else if (href.indexOf('tel:') === 0) trackContact('call', loc);
   });
@@ -1085,8 +1088,10 @@ footer a{color:var(--muted)}
     return d;
   }
 
+  var requestKey = '', requestId = '';
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (btn.disabled) return;
     var name = nameInput.value.trim();
     var phone = cleanPhone(phoneInput.value);
     var ok = true;
@@ -1096,7 +1101,9 @@ footer a{color:var(--muted)}
 
     var forWhom = (form.querySelector('input[name="patient_for"]:checked') || {}).value || 'Self';
     var slotLabel = sel.options[sel.selectedIndex].textContent;
-    var leadId = 'cervical-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
+    var key = JSON.stringify([name, phone, forWhom, sel.value, symptomsField.value]);
+    if (key !== requestKey) { requestKey = key; requestId = window.KarmanyaBooking.newLeadId(); }
+    var leadId = requestId;
 
     var fd = new FormData();
     fd.set('concern', forWhom === 'Self' ? 'cervical / neck pain' : 'cervical / neck pain (for ' + forWhom.toLowerCase() + ')');
@@ -1109,6 +1116,7 @@ footer a{color:var(--muted)}
     fd.set('angle', KA.angle);
     fd.set('page', location.origin + location.pathname);
     fd.set('lead_id', leadId);
+    fd.set('website', form.querySelector('[name=website]').value);
     Object.keys(KA.params).forEach(function (k) { fd.set(k, KA.params[k]); });
 
     btn.disabled = true; btn.textContent = 'Sending your request…';
@@ -1116,26 +1124,19 @@ footer a{color:var(--muted)}
 
     var send;
     if (KA.isProd || C.sendFormOutsideProduction) {
-      var ctrl = ('AbortController' in window) ? new AbortController() : null;
-      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 35000);
-      send = fetch(C.formEndpoint, { method: 'POST', body: fd, mode: 'no-cors', signal: ctrl ? ctrl.signal : undefined })
-        .then(function (r) { clearTimeout(timer); return true; })
-        .catch(function () { clearTimeout(timer); return false; });
+      var payload = {};
+      fd.forEach(function (value, key) { payload[key] = value; });
+      send = window.KarmanyaBooking.send(payload).then(function () { return true; }, function () { return false; });
     } else {
-      var preview = {}; fd.forEach(function (v, k) { preview[k] = v; });
-      console.info('[preview] form not sent', preview);
-      send = new Promise(function (res) { setTimeout(function () { res(true); }, 500); });
+      // A preview must not write to the clinic sheet or count a lead.
+      send = Promise.resolve(false);
     }
 
     send.then(function (sent) {
       if (sent) {
         trackLead(leadId, 'form');
         if (C.thankYouUrl) { location.href = C.thankYouUrl; return; }
-        // Automatically redirect to WhatsApp after form submission
-        var text = 'Namaste! I would like to book an assessment at Karmanya Ayurveda, Pimple Saudagar.\nName: ' + name + '\nMobile: ' + phone + '\nFor: ' + forWhom + '\nPreferred time: ' + slotLabel;
-        setTimeout(function() { window.location.href = wa(text); }, 800);
-        
-        // Fallback UI just in case the redirect is blocked
+        // Keep the received request visible. WhatsApp is an optional, explicit action.
         document.getElementById('formWrap').hidden = true;
         var done = document.getElementById('doneWrap');
         document.getElementById('doneTitle').textContent = 'Request received, ' + name.split(' ')[0] + '.';
@@ -1148,16 +1149,14 @@ footer a{color:var(--muted)}
         btn.disabled = false; btn.textContent = 'Request my slot';
         var text = 'Namaste! I would like to book a cervical & posture assessment at Karmanya Ayurveda, Pimple Saudagar.\nName: ' + name + '\nMobile: ' + phone + '\nFor: ' + forWhom + '\nPreferred time: ' + slotLabel;
         sendErr.className = 'alert-box';
-        sendErr.innerHTML = '<p><strong>We couldn’t send your request just now.</strong> Tap below to send the same details on WhatsApp instead.</p>' +
-          '<a class="btn btn-wa btn-block" target="_blank" rel="noopener" data-lead-id="' + leadId + '" href="' + wa(text) + '">Send my details on WhatsApp</a>';
+        sendErr.innerHTML = '<p><strong>We couldn’t confirm receipt of your request.</strong> Call the clinic or tap below to send your details on WhatsApp. A message is sent only when you press Send in WhatsApp.</p>' +
+          '<a class="btn btn-wa btn-block" target="_blank" rel="noopener" data-loc="form_fallback" href="' + wa(text) + '">Send my details on WhatsApp</a>';
         sendErr.hidden = false;
       }
     });
   });
 
   
-  // Warm up the Apps Script container
-  if (C.formEndpoint && window.KA.isProd) fetch(C.formEndpoint, { mode: 'no-cors' }).catch(function(){});
 
   /* ---------- Sticky bar (mobile): after the hero buttons, hidden while the form is on screen ---------- */
   var sticky = document.getElementById('sticky');
