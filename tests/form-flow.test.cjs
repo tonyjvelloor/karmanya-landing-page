@@ -5,6 +5,19 @@ const vm = require('node:vm');
 const path = require('node:path');
 const settle = () => new Promise(resolve => setImmediate(resolve));
 
+test('condition URLs navigate normally and preserve case-sensitive click identifiers and anchors', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const router = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+  for (const [condition, expected] of [['SCIATICA', 'back'], ['spine', 'back'], ['neck', 'cervical'], ['knee', '']]) {
+    const search = '?condition=' + condition + '&gclid=CaseSensitiveClickID';
+    let target = '';
+    vm.runInNewContext(router, { URLSearchParams, location: { search, hash: '#book', replace: value => { target = value; } } });
+    assert.equal(target, expected ? '/' + expected + '.html' + search + '#book' : '');
+  }
+  assert.equal(router.includes('document.write'), false);
+  assert.equal(router.includes('window.stop'), false);
+});
+
 function harness(filename, send, isProd = true) {
   const html = fs.readFileSync(path.join(__dirname, '..', filename), 'utf8');
   const block = html.split('/* ---------- Booking form ---------- */')[1].split('/* ---------- Sticky bar')[0];
