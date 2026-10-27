@@ -1,0 +1,179 @@
+{
+  "sharedFactors": [
+    {
+      "image": "digestion",
+      "title": "Digestion & gut health",
+      "text": "Appetite, digestion, bowel habits and food tolerance are part of your Ayurvedic assessment."
+    },
+    {
+      "image": "metabolism",
+      "title": "Metabolic health",
+      "text": "Your doctor reviews relevant weight, blood-sugar and medical history when planning care."
+    },
+    {
+      "image": "exposure",
+      "title": "Everyday habits & exposure",
+      "text": "Sleep, smoking, alcohol, work routines and environmental exposures help build the full picture."
+    },
+    {
+      "image": "communication",
+      "title": "Nerve & movement function",
+      "text": "Strength, sensation and movement patterns are reviewed alongside your symptoms."
+    },
+    {
+      "image": "oxidative",
+      "title": "Oxidative stress & tissue health",
+      "text": "Oxidative stress is a research topic in tissue health. It is not assumed to be the cause of your pain."
+    }
+  ],
+  "knee": {
+    "title": "A fuller picture of your knee health.",
+    "intro": "Knee pain can have different causes. At Karmanya, your doctor considers the knee itself alongside digestion, daily habits and your wider health before discussing authentic Kerala Ayurveda therapies.",
+    "anatomyAlt": "Conceptual illustration of a knee joint, with bone, cartilage and surrounding tissues",
+    "planTitle": "How your Kerala Ayurveda care plan takes shape",
+    "planIntro": "Rooted in classical Kerala Ayurveda, planned around your assessment. Your doctor selects the relevant parts of care, explains their traditional use and reviews your response.",
+    "plan": [
+      {
+        "title": "Review digestion & metabolism",
+        "text": "Your Ayurvedic consultation includes discussion of Agni, appetite and digestion, alongside relevant medical history."
+      },
+      {
+        "title": "Understand your daily routine",
+        "text": "Sleep, work, activity and existing medicines are reviewed before recommendations are made."
+      },
+      {
+        "title": "Personalise food & gut-health guidance",
+        "text": "Your doctor may suggest a practical food routine suited to your assessment, preferences and other health conditions."
+      },
+      {
+        "title": "Consider the wider health picture",
+        "text": "The examination and relevant reports guide whether another condition or specialist opinion needs attention."
+      },
+      {
+        "title": "Plan movement around your ability",
+        "text": "Discuss walking, stairs, balance and strength. Movement guidance or referral is tailored to your comfort and clinical needs."
+      },
+      {
+        "title": "Select authentic Kerala Ayurveda therapies",
+        "text": "If appropriate, your doctor may prescribe Janu Basti, Patra Pinda Sweda, Lepam or other classical therapies, with medicines only when indicated."
+      }
+    ],
+    "therapyImage": "https://karmanyaayurveda.com/images/protocols/protocol-knee-janu-basti.webp",
+    "therapyAlt": "Janu Basti procedure with warm medicated oil held around the knee in a dough ring",
+    "therapyCaption": "Janu Basti is a traditional external Ayurvedic procedure. It is used only when prescribed for the individual.",
+    "therapyTitle": "Authentic Kerala Ayurveda, explained clearly.",
+    "therapies": [
+      "Janu Basti: warm medicated oil held around the knee in a dough ring.",
+      "Patra Pinda Sweda: a traditional fomentation procedure using prepared herbal-leaf bundles.",
+      "Lepam or Pichu: prescribed external herbal applications or medicated-oil pads."
+    ],
+    "journeyTitle": "Your Karmanya knee-care journey",
+    "journeyIntro": "A clear sequence from your first consultation to a review of everyday function, with the plan explained before you decide to begin.",
+    "journey": [
+      {
+        "title": "Book your assessment",
+        "text": "Request a ₹500, in-clinic consultation in Pimple Saudagar. The clinic confirms your appointment time."
+      },
+      {
+        "title": "Meet your BAMS doctor",
+        "text": "Discuss your knee pain, medical history, walking ability and current medicines. The doctor examines you before recommending care."
+      },
+      {
+        "title": "Record your starting point",
+        "text": "Set goals for pain, stiffness, walking and stairs. Bring existing X-rays or reports; new imaging is advised only when clinically useful."
+      },
+      {
+        "title": "Understand the proposed plan",
+        "text": "Your doctor explains suitable options, fees, expected reviews and when specialist advice may be needed. Decide after your questions are answered."
+      },
+      {
+        "title": "Begin prescribed Kerala Ayurveda therapy",
+        "text": "Start the authentic Kerala Ayurveda therapies selected for you, with trained therapists and doctor supervision. Diet or medicine advice is individualised."
+      },
+      {
+        "title": "Review comfort & daily function",
+        "text": "At doctor-advised intervals, review symptoms and activities against your starting point. Repeat imaging is considered only when it is clinically useful."
+      },
+      {
+        "title": "Agree on your next steps",
+        "text": "Continue, change or stop the plan according to clinical review. You may discuss your reports with your family physician or orthopaedic specialist."
+      }
+    ],
+    "imagingText": "An X-ray is not required for every person with knee pain, and routine repeat films are not a measure of treatment success for everyone. Your doctor will explain whether imaging could help guide care. If advised, you can use a reliable independent diagnostic centre and bring the report. Progress also includes symptoms and everyday function."
+  },
+  "spine": {
+    "title": "Understand the whole picture behind back pain.",
+    "intro": "Back pain and sciatica need an individual assessment. Your doctor reviews the spine, symptoms and daily function alongside digestion, lifestyle and wider health before discussing authentic Kerala Ayurveda therapies.",
+    "anatomyAlt": "Conceptual illustration of lumbar vertebrae, intervertebral discs and nerve roots",
+    "planTitle": "A spine-care plan rooted in Kerala Ayurveda",
+    "planIntro": "Authentic Kerala Ayurveda therapies are selected after assessment. The plan brings together traditional practice, a review of your health and practical goals for everyday function.",
+    "plan": [
+      {
+        "title": "Review digestion & metabolism",
+        "text": "Your Ayurvedic consultation includes discussion of Agni, appetite and digestion, alongside your medical history."
+      },
+      {
+        "title": "Understand work, rest & daily habits",
+        "text": "Sitting, lifting, sleep, activity and existing medicines help your doctor understand the context of your symptoms."
+      },
+      {
+        "title": "Personalise food & routine guidance",
+        "text": "Food and daily-routine advice may be offered when appropriate to your assessment and other health conditions."
+      },
+      {
+        "title": "Review symptoms & relevant reports",
+        "text": "Your symptoms, examination and any existing scans guide whether further investigation or specialist referral is needed."
+      },
+      {
+        "title": "Support appropriate movement",
+        "text": "Discuss posture, comfortable activity and strength. Movement advice or referral is tailored to your clinical needs."
+      },
+      {
+        "title": "Select authentic Kerala Ayurveda therapies",
+        "text": "If suitable, your doctor may prescribe Kati Basti, Patra Pinda Sweda, Pichu or other classical therapies, with medicines only when indicated."
+      }
+    ],
+    "therapyImage": "https://karmanyaayurveda.com/images/protocols/protocol-spine-kati-basti.webp",
+    "therapyAlt": "Kati Basti procedure with warm medicated oil held over the lower back in a dough ring",
+    "therapyCaption": "Kati Basti is a traditional external Ayurvedic procedure. Suitability is assessed by your doctor.",
+    "therapyTitle": "Authentic Kerala Ayurveda for individual care.",
+    "therapies": [
+      "Kati Basti: warm medicated oil held over the lower back in a dough ring.",
+      "Patra Pinda Sweda: a traditional fomentation procedure using prepared herbal-leaf bundles.",
+      "Pichu or Lepam: prescribed medicated-oil pads or external herbal applications."
+    ],
+    "journeyTitle": "Your Karmanya spine-care journey",
+    "journeyIntro": "Understand each stage of care, from assessment to review, with realistic goals and a plan tailored to you.",
+    "journey": [
+      {
+        "title": "Book your assessment",
+        "text": "Request a ₹500, in-clinic consultation at Pimple Saudagar. The clinic confirms a suitable appointment time."
+      },
+      {
+        "title": "Meet your BAMS doctor",
+        "text": "Describe your back or leg symptoms, medical history, daily activities and current medicines. The doctor examines you before discussing care."
+      },
+      {
+        "title": "Establish a clinical baseline",
+        "text": "Record pain, sitting or walking tolerance and daily limitations. Bring existing MRI or X-ray reports; further imaging is considered only if it could guide care."
+      },
+      {
+        "title": "Discuss options & suitability",
+        "text": "Your doctor explains the proposed plan, fees and review points, including whether a spine specialist or another service should be involved."
+      },
+      {
+        "title": "Begin prescribed Kerala Ayurveda therapy",
+        "text": "Receive the authentic Kerala Ayurveda therapies selected for you, with trained therapists and doctor supervision. Medicines and routine advice are individualised."
+      },
+      {
+        "title": "Review symptoms & everyday function",
+        "text": "Discuss comfort, mobility and daily activity at doctor-advised intervals. New or worsening symptoms need reassessment; scans are repeated only when clinically useful."
+      },
+      {
+        "title": "Plan continued care or referral",
+        "text": "Your doctor reviews whether care should continue, change or stop. You may review your reports and options with your family physician or spine specialist."
+      }
+    ],
+    "imagingText": "MRI or X-ray is not routinely needed for every episode of back pain or sciatica. Your doctor will explain whether imaging could change the care plan or whether specialist assessment is needed. If advised, you can use a reliable independent diagnostic centre. Follow-up is based on clinical need, symptoms and function, not a fixed repeat-scan date."
+  }
+}

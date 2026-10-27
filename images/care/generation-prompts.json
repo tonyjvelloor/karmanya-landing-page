@@ -1,0 +1,58 @@
+[
+  {
+    "asset": "images/care/knee.webp",
+    "method": "built-in image_gen",
+    "finalPrompt": "Edit this existing illustration: change only its colour palette. Natural ivory bone, soft off-white cartilage, muted warm coral/rose soft tissue and tendons with subtle warm beige shadows. No green. White/ivory background. Preserve the existing subject, composition, material detail and generous space. Premium realistic 3D editorial medical illustration, naturally varied colours, calm and refined; no heavy saturation. Retain scientific plausibility. Do not add text, labels, arrows, logos, new anatomy, clinical outcomes or before/after imagery.",
+    "width": 720,
+    "height": 1080,
+    "bytes": 57216
+  },
+  {
+    "asset": "images/care/spine.webp",
+    "method": "built-in image_gen",
+    "finalPrompt": "Edit this existing illustration: change only its colour palette. Natural ivory vertebrae, pale slate-blue intervertebral discs, warm amber nerve roots, neutral warm-grey translucent torso. No green. White/ivory background. Preserve the existing subject, composition, material detail and generous space. Premium realistic 3D editorial medical illustration, naturally varied colours, calm and refined; no heavy saturation. Retain scientific plausibility. Do not add text, labels, arrows, logos, new anatomy, clinical outcomes or before/after imagery.",
+    "width": 720,
+    "height": 1080,
+    "bytes": 63744
+  },
+  {
+    "asset": "images/care/digestion.webp",
+    "method": "built-in image_gen",
+    "finalPrompt": "Edit this existing illustration: change only its colour palette. Stomach and gut in natural muted coral, soft peach and ivory, with tiny warm amber nutrient spheres. No green. White/ivory background. Preserve the existing subject, composition, material detail and generous space. Premium realistic 3D editorial medical illustration, naturally varied colours, calm and refined; no heavy saturation. Retain scientific plausibility. Do not add text, labels, arrows, logos, new anatomy, clinical outcomes or before/after imagery.",
+    "width": 480,
+    "height": 480,
+    "bytes": 17022
+  },
+  {
+    "asset": "images/care/metabolism.webp",
+    "method": "built-in image_gen",
+    "finalPrompt": "Edit this existing illustration: change only its colour palette. Translucent pale blue cell, dusty-rose nucleus and warm amber mitochondrion, small gold nutrient spheres. No green. White/ivory background. Preserve the existing subject, composition, material detail and generous space. Premium realistic 3D editorial medical illustration, naturally varied colours, calm and refined; no heavy saturation. Retain scientific plausibility. Do not add text, labels, arrows, logos, new anatomy, clinical outcomes or before/after imagery.",
+    "width": 480,
+    "height": 480,
+    "bytes": 26766
+  },
+  {
+    "asset": "images/care/exposure.webp",
+    "method": "built-in image_gen",
+    "finalPrompt": "Edit this existing illustration: change only its colour palette. Keep the single leaf a natural subdued olive green; charcoal-grey environmental particles and a subtle warm terracotta leaf stem. White/ivory background. Green only in the leaf, no green glow. Preserve the existing subject, composition, material detail and generous space. Premium realistic 3D editorial medical illustration, naturally varied colours, calm and refined; no heavy saturation. Retain scientific plausibility. Do not add text, labels, arrows, logos, new anatomy, clinical outcomes or before/after imagery.",
+    "width": 480,
+    "height": 480,
+    "bytes": 14882
+  },
+  {
+    "asset": "images/care/communication.webp",
+    "method": "built-in image_gen",
+    "finalPrompt": "Edit this existing illustration: change only its colour palette. Neural branches in muted slate blue with soft dusty-rose cell centres and a warm amber connecting strand. No green. White/ivory background. Preserve the existing subject, composition, material detail and generous space. Premium realistic 3D editorial medical illustration, naturally varied colours, calm and refined; no heavy saturation. Retain scientific plausibility. Do not add text, labels, arrows, logos, new anatomy, clinical outcomes or before/after imagery.",
+    "width": 480,
+    "height": 480,
+    "bytes": 20694
+  },
+  {
+    "asset": "images/care/oxidative.webp",
+    "method": "built-in image_gen",
+    "finalPrompt": "Edit this existing illustration: change only its colour palette. Translucent pale lavender cell, soft plum nucleus and muted coral, silver-grey and amber molecular spheres. No green. White/ivory background. Preserve the existing subject, composition, material detail and generous space. Premium realistic 3D editorial medical illustration, naturally varied colours, calm and refined; no heavy saturation. Retain scientific plausibility. Do not add text, labels, arrows, logos, new anatomy, clinical outcomes or before/after imagery.",
+    "width": 480,
+    "height": 480,
+    "bytes": 28318
+  }
+]
