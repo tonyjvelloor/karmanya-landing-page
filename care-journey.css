@@ -1,0 +1,55 @@
+/* Illustrated patient education: scoped to avoid affecting booking and tracking. */
+.ka-care{padding:72px 0;scroll-margin-top:100px}
+.ka-care *{box-sizing:border-box}
+.ka-care--paper{background:#fff}
+.ka-care--warm{background:#f7f2eb}
+.ka-care .ka-eyebrow{font:700 .76rem/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#9d6142;margin:0 0 14px}
+.ka-care h2{color:#253c45;max-width:22ch;font-size:clamp(1.9rem,3.5vw,3rem);line-height:1.15;letter-spacing:-.025em;margin:0}
+.ka-care .ka-intro{color:var(--muted);font-size:1.08rem;line-height:1.7;max-width:68ch;margin:18px 0 0}
+.ka-context{display:grid;gap:30px;margin-top:36px;align-items:start}
+.ka-anatomy{margin:0;background:#faf7f1;border:1px solid #dedbd3;border-radius:24px;overflow:hidden}
+.ka-anatomy img{width:100%;height:380px;object-fit:contain;display:block}
+.ka-anatomy figcaption{font-size:.76rem;color:#62686b;text-align:center;line-height:1.5;padding:12px 20px 18px}
+.ka-factors{display:grid;gap:12px;list-style:none;padding:0;margin:0}
+.ka-factor{display:grid;grid-template-columns:78px minmax(0,1fr);gap:16px;align-items:center;background:#fff;border:1px solid #dedbd3;border-radius:16px;padding:12px}
+.ka-factor img{width:78px;height:78px;object-fit:cover;border-radius:10px}
+.ka-factor h3{font:650 1rem/1.35 var(--sans);color:#253c45;margin:0 0 5px}
+.ka-factor p{font-size:.88rem;line-height:1.55;color:#57636a;margin:0}
+.ka-care .ka-context-note{font-size:.83rem;color:#57636a;line-height:1.65;margin:20px 0 0;max-width:80ch}
+.ka-plan{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:16px}
+.ka-plan li{background:#fff;border:1px solid #dedbd3;padding:24px;border-radius:16px}
+.ka-plan .ka-number{font:650 .8rem/1 var(--sans);color:#9d6142;display:block;margin-bottom:20px;letter-spacing:.08em}
+.ka-plan h3{font:650 1.12rem/1.4 var(--sans);margin:0 0 10px;color:#253c45}
+.ka-plan p{font-size:.96rem;line-height:1.7;color:#57636a;margin:0}
+.ka-plan li:last-child{background:#243d4a;border-color:#243d4a}
+.ka-plan li:last-child h3{color:#fff}
+.ka-plan li:last-child p{color:#e5edf0}
+.ka-plan li:last-child .ka-number{color:#dfc18a}
+.ka-therapy{display:grid;gap:26px;margin-top:28px;padding:20px;background:#fff;border:1px solid #dedbd3;border-radius:20px;align-items:center}
+.ka-therapy figure{margin:0}
+.ka-therapy img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+.ka-therapy figcaption{font-size:.78rem;line-height:1.5;color:#62686b;margin-top:9px}
+.ka-therapy h3{font-size:1.45rem;line-height:1.3;margin:0 0 14px;color:#253c45}
+.ka-therapy ul{padding-left:19px;line-height:1.75;color:#57636a;margin:0 0 18px}
+.ka-therapy .btn{font-size:.95rem;min-height:48px}
+.ka-journey{display:grid;gap:32px;margin-top:36px;align-items:start}
+.ka-journey-side{padding:28px;border-radius:22px;background:#243d4a;color:#fff}
+.ka-journey-side h3{font-size:1.8rem;line-height:1.2;color:#fff;margin:0 0 24px}
+.ka-pillars{display:grid;gap:18px;list-style:none;padding:0;margin:0 0 28px}
+.ka-pillars li{padding-top:18px;border-top:1px solid #6f8792}
+.ka-pillars b{display:block;font-size:1.2rem;font-weight:600;color:#f3ead9;margin-bottom:5px}
+.ka-pillars span{display:block;color:#e5edf0;font-size:.92rem;line-height:1.6}
+.ka-journey-side .btn{background:#f1e7d5;color:#253c45;width:100%;font-size:.95rem}
+.ka-journey-side .ka-fee{font-size:.84rem;line-height:1.6;color:#e5edf0;margin:18px 0 0}
+.ka-timeline{list-style:none;padding:0;margin:0;counter-reset:journey}
+.ka-timeline li{position:relative;padding:0 0 28px 58px;min-height:112px}
+.ka-timeline li:before{position:absolute;left:0;top:0;counter-increment:journey;content:counter(journey,decimal-leading-zero);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#f7e8dd;color:#7b492f;border:1px solid #ddbcaa;font:650 .82rem/1 var(--sans);z-index:1}
+.ka-timeline li:not(:last-child):after{position:absolute;content:"";left:18px;top:38px;bottom:0;width:1px;background:#e2cfc2}
+.ka-timeline h3{font:650 1.12rem/1.4 var(--sans);margin:0 0 8px;color:#253c45}
+.ka-timeline p{font-size:.96rem;line-height:1.7;color:#57636a;margin:0;max-width:62ch}
+.ka-imaging{margin-top:28px;padding:20px 24px;background:#faf7f1;border:1px solid #dedbd3;border-radius:14px}
+.ka-imaging summary{cursor:pointer;font-weight:650;color:#253c45;line-height:1.5}
+.ka-imaging p{color:#57636a;font-size:.94rem;line-height:1.75;margin:14px 0 0}
+@media(min-width:600px){.ka-plan{grid-template-columns:repeat(2,minmax(0,1fr))}.ka-factor{grid-template-columns:88px minmax(0,1fr)}.ka-factor img{width:88px;height:88px}}
+@media(min-width:960px){.ka-care{padding:88px 0}.ka-context{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px}.ka-anatomy{position:sticky;top:100px}.ka-anatomy img{height:620px}.ka-plan{grid-template-columns:repeat(3,minmax(0,1fr))}.ka-therapy{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:36px;padding:28px}.ka-journey{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px}.ka-journey-side{position:sticky;top:100px;padding:36px}}
+@media(max-width:380px){.ka-factor{grid-template-columns:64px minmax(0,1fr);gap:10px;padding:10px}.ka-factor img{width:64px;height:64px}.ka-plan li{padding:20px}.ka-timeline li{padding-left:50px}.ka-journey-side{padding:24px}}
