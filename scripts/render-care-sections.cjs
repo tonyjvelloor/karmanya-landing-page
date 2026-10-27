@@ -76,15 +76,15 @@ function cleanClaims(html, kind) {
   const defaultWa = `Namaste! I would like to book a ${knee ? 'knee' : 'spine'} assessment at Karmanya Ayurveda, Pimple Saudagar. Please share an available slot.`;
   const angles = {
     default: { title: knee ? 'Ayurvedic Knee Pain Care in Pimple Saudagar' : 'Ayurvedic Back Pain & Sciatica Care', sub: `Doctor-led ${condition} care using authentic Kerala Ayurveda therapies, selected after an individual assessment in Pimple Saudagar.`, wa: defaultWa },
-    surgery: { title: `Understand your ${knee ? 'knee' : 'spine'} care options`, sub: 'Bring your existing reports and treatment recommendations. A BAMS doctor assesses suitability and explains when specialist advice is needed.', wa: defaultWa },
+    surgery: { title: `Understand your ${knee ? 'knee' : 'spine'} care options`, sub: 'Bring your existing reports and treatment recommendations. Our expert doctor assesses suitability and explains when specialist advice is needed.', wa: defaultWa },
     parent: { title: `Ayurvedic ${knee ? 'knee' : 'spine'} care for your parent`, sub: 'Book an in-person assessment to discuss symptoms, daily limitations and appropriate authentic Kerala Ayurveda therapies.', wa: defaultWa, forWhom: 'Parent' },
     tried: { title: `A doctor-led review of persistent ${knee ? 'knee' : 'back'} pain`, sub: 'Discuss your symptoms, earlier care and daily goals before deciding on a personalised plan rooted in classical Kerala Ayurveda.', wa: defaultWa },
   };
   html = html.replace(/window\.KA_ANGLES = \{[\s\S]*?\n\};/, 'window.KA_ANGLES = ' + JSON.stringify(angles, null, 2) + ';');
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${knee ? 'Knee Care' : 'Back Pain & Sciatica Care'} with Authentic Kerala Ayurveda | Pimple Saudagar</title>`);
   html = html.replace(/(<p class="sub" id="heroSub">)[\s\S]*?(<\/p>)/, '$1' + esc(angles.default.sub) + '$2');
-  html = html.replace(/<ul class="proof">[\s\S]*?<\/ul>/, '<ul class="proof"><li><span><strong>BAMS doctor</strong> assessment</span></li><li><span><strong>Authentic Kerala Ayurveda</strong> therapies</span></li><li><span>Open <strong>all 7 days</strong></span></li></ul>');
-  html = html.replace(/<p class="offer">[\s\S]*?<\/p>/, '<p class="offer"><strong>₹500 in-clinic assessment</strong>, about 45 minutes. Discuss your symptoms and appropriate care with a BAMS doctor. Or call <a href="tel:+919819820017" data-loc="hero_text">+91 98198 20017</a>.</p>');
+  html = html.replace(/<ul class="proof">[\s\S]*?<\/ul>/, '<ul class="proof"><li><span>Assessment by <strong>our expert doctor</strong></span></li><li><span><strong>Authentic Kerala Ayurveda</strong> therapies</span></li><li><span>Open <strong>all 7 days</strong></span></li></ul>');
+  html = html.replace(/<p class="offer">[\s\S]*?<\/p>/, '<p class="offer"><strong>₹500 in-clinic assessment</strong>, about 45 minutes. Discuss your symptoms and appropriate care with our expert doctor. Or call <a href="tel:+919819820017" data-loc="hero_text">+91 98198 20017</a>.</p>');
   html = html.replace(/(<a\b(?=[^>]*\bdata-wa\b)[^>]*\bhref=")[^"]+("[^>]*>)/g, '$1https://wa.me/919819820017?text=' + encodeURIComponent(defaultWa) + '$2');
   // Keep landing pages independent of a named doctor's availability.
   html = html.replace(/\n      <div class="docs-line">[\s\S]*?<\/div>\s*<p>[\s\S]*?<\/p>\s*<\/div>/, '');

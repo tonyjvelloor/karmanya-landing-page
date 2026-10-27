@@ -32,7 +32,7 @@ def update_file(filename, default_title, default_sub, default_wa, surgery_wa, pa
 
 update_file('back.html',
     default_title="Heal Sciatica & Slip Disc Naturally.",
-    default_sub="Non-surgical Kerala Ayurvedic spine care in Pimple Saudagar, led by BAMS doctors. For sciatica, slip disc, and chronic back pain.",
+    default_sub="Non-surgical Kerala Ayurvedic spine care in Pimple Saudagar, led by our expert doctor. For sciatica, slip disc, and chronic back pain.",
     default_wa="Namaste! I'd like to book a spine assessment at Karmanya Ayurveda, Pimple Saudagar. Please share an available slot.",
     surgery_wa="Namaste! I've been advised spinal surgery and would like a non-surgical opinion at Karmanya Ayurveda, Pimple Saudagar. Please share an available slot.",
     parent_title="Back pain keeping your mother or father at home?",
@@ -43,7 +43,7 @@ update_file('back.html',
 
 update_file('cervical.html',
     default_title="Relieve Neck Pain & Cervical Spondylosis without surgery.",
-    default_sub="Non-surgical Kerala Ayurvedic cervical care in Pimple Saudagar, led by BAMS doctors. For cervical spondylosis, neck stiffness, and radiating shoulder pain.",
+    default_sub="Non-surgical Kerala Ayurvedic cervical care in Pimple Saudagar, led by our expert doctor. For cervical spondylosis, neck stiffness, and radiating shoulder pain.",
     default_wa="Namaste! I'd like to book a cervical assessment at Karmanya Ayurveda, Pimple Saudagar. Please share an available slot.",
     surgery_wa="Namaste! I've been advised cervical surgery and would like a non-surgical opinion at Karmanya Ayurveda, Pimple Saudagar. Please share an available slot.",
     parent_title="Neck pain keeping your mother or father at home?",
