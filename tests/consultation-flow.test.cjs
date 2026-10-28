@@ -4,20 +4,22 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const script = fs.readFileSync(require('node:path').join(__dirname, '..', 'consultation-flow.js'), 'utf8');
 
-test('third-party video frames are created only after an explicit play action', () => {
-  let play;
-  const frames = [], replacements = [];
-  const button = { getAttribute: key => key === 'data-video-id' ? 'DNzYOICUJW7' : 'Play patient video', addEventListener: (event, fn) => { assert.equal(event, 'click'); play = fn; }, parentNode: { replaceChild: (...args) => replacements.push(args) } };
-  vm.runInNewContext(script, {
-    document: { querySelectorAll: () => [button], getElementById: () => null, createElement: tag => { assert.equal(tag, 'iframe'); const frame = { setAttribute() {} }; frames.push(frame); return frame; } },
-    window: { addEventListener() {} }, location: { hash: '' },
+for (const filename of ['index.html', 'knee.html', 'back.html']) {
+  test(filename + ': all three original testimonials are visible in order, with Malayalam last and no autoplay', () => {
+    const html = fs.readFileSync(require('node:path').join(__dirname, '..', filename), 'utf8');
+    const section = html.match(/<div class="flow-testimonials"[\s\S]*?(?=<!-- FIT -->)/)[0];
+    const frames = [...section.matchAll(/<iframe\b[^>]+>/g)].map(m => m[0]);
+    assert.equal(frames.length, 3);
+    for (const [index, id] of ['DHFwJAGtggY', 'DFFbgpbt85n', 'DNzYOICUJW7'].entries()) {
+      assert.ok(frames[index].includes('https://www.instagram.com/reel/' + id + '/embed/'));
+      assert.ok(frames[index].includes('loading="lazy"'));
+      assert.ok(!frames[index].includes('autoplay'));
+    }
+    assert.equal((section.match(/flow-video-featured/g) || []).length, 2);
+    assert.ok(!section.includes('<details'));
+    assert.ok(section.includes('in Malayalam'));
   });
-  assert.equal(frames.length, 0);
-  play();
-  assert.equal(frames.length, 1);
-  assert.equal(frames[0].src, 'https://www.instagram.com/reel/DNzYOICUJW7/embed/');
-  assert.equal(replacements.length, 1);
-});
+}
 
 test('existing deep links reveal their containing educational details', () => {
   const outer = { open: false, parentElement: { closest: () => null } };
