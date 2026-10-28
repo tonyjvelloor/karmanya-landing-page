@@ -2,17 +2,17 @@
 
 Updated 28 October 2026 for the knee landing routes (`index.html`, `knee.html`) and the spine route (`back.html`).
 
-The two versions have original, separately tailored copy: five assessment topics, a six-part care-plan explanation, descriptions of traditional procedures, and a seven-step treatment journey. Authentic Kerala Ayurveda therapies are central to both versions. The detailed sections sit inside expandable panels below a concise three-step overview. The consultation form now asks for visit readiness; the booking delivery and anonymous conversion rules are unchanged.
+The two versions have original, separately tailored copy: five assessment topics, a six-part care-plan explanation, descriptions of traditional procedures, and a seven-step treatment journey. Authentic Kerala Ayurveda therapies are central to both versions. The anatomy, assessment topics, procedure image and treatment steps are visible in the scrolling page. Only longer care-plan and imaging explanations are expandable. The consultation form asks for visit readiness; the booking delivery and anonymous conversion rules are unchanged.
 
-The approved visual direction is natural anatomy with varied coral, amber, slate-blue and lavender accents. Green is retained in the leaf illustration and existing brand controls. Seven original illustrations were generated and revised with the built-in image-generation tool, then encoded as WebP assets for the site. The WebP images total approximately 230 KB. Conceptual anatomy is labelled as illustration, not a patient scan or treatment outcome.
+The approved visual direction is natural anatomy with varied coral, amber, slate-blue and lavender accents. Green is retained in the leaf illustration and existing brand controls. Seven original care illustrations and two new lifestyle illustrations were generated with the built-in image-generation tool, then encoded as WebP assets for the site. The new hero variants total approximately 90 KB across both conditions and widths. Conceptual anatomy is labelled as illustration, not a patient scan or treatment outcome; the new hero images are labelled lifestyle illustrations.
 
 ## Content and assets
 
 - Edit `content/care-journeys.json` for the tailored section copy.
 - Run `node scripts/render-care-sections.cjs` to update the committed HTML. Rendering is deterministic and uses no browser-side content fetch.
-- Illustration styles are scoped in `care-journey.css`; the consultation flow and expandable panels use `landing-flow.css`.
+- The new visual page uses `visual-journey.css` and `scripts/visual-journey.cjs`. Existing `care-journey.css` and `landing-flow.css` remain shared with cervical; their output is unchanged.
 - `scripts/render-consultation-flow.cjs` controls the knee/spine page order. See `CONSULTATION-FLOW.md`.
-- Final illustrations and the exact final revision prompts are in `images/care/` and `images/care/generation-prompts.json`.
+- Original care illustrations and prompts are in `images/care/`; the new hero variants and exact prompts are in `images/visual-journey/`.
 
 ## Claims and evidence
 

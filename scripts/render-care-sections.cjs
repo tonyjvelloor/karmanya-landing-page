@@ -3,6 +3,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'content/care-journeys.json'), 'utf8'));
 const { renderFlow } = require('./render-consultation-flow.cjs');
+const { renderVisualCare } = require('./visual-journey.cjs');
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 
 function expandedSections(kind) {
@@ -55,6 +56,7 @@ function expandedSections(kind) {
 }
 
 function sections(kind) {
+  if (kind === 'knee' || kind === 'spine') return renderVisualCare(data, kind);
   const d = data[kind];
   const expanded = expandedSections(kind).match(/<section class="ka-care[\s\S]*?<\/section>/g);
   if (expanded.length !== 3) throw new Error('Expected three detailed care sections');
