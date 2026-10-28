@@ -2,9 +2,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'content/care-journeys.json'), 'utf8'));
+const { renderFlow } = require('./render-consultation-flow.cjs');
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 
-function sections(kind) {
+function expandedSections(kind) {
   const d = data[kind];
   const factors = data.sharedFactors.map(f => `<li class="ka-factor"><img src="/images/care/${f.image}.webp" alt="" width="480" height="480" loading="lazy"><div><h3>${esc(f.title)}</h3><p>${esc(f.text)}</p></div></li>`).join('\n');
   const plan = d.plan.map((s, i) => `<li><span class="ka-number" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join('\n');
@@ -53,11 +54,31 @@ function sections(kind) {
 <!-- KARMANYA CARE END -->`;
 }
 
+function sections(kind) {
+  const d = data[kind];
+  const expanded = expandedSections(kind).match(/<section class="ka-care[\s\S]*?<\/section>/g);
+  if (expanded.length !== 3) throw new Error('Expected three detailed care sections');
+  const steps = [
+    ['Meet your doctor', 'Discuss your symptoms and existing reports, have an individual examination and understand your starting point.'],
+    ['Decide on suitable care', 'If appropriate, consider authentic Kerala Ayurveda therapies. Your doctor explains the proposed care, costs and review points before you decide.'],
+    ['Review your everyday function', 'Review symptoms, movement and daily activities with your doctor. Care may continue, change or stop; specialist advice is recommended when needed.'],
+  ];
+  return `<!-- KARMANYA CARE START -->
+<section class="flow-care-overview" aria-labelledby="flow-care-title"><div class="wrap">
+  <div class="flow-care-intro"><figure><img src="/images/care/${kind}.webp" alt="${esc(d.anatomyAlt)}" width="720" height="1080" loading="lazy"></figure><div><p class="flow-eyebrow">Authentic Kerala Ayurveda therapies</p><h2 id="flow-care-title">Your care, one step at a time.</h2><p>Assessment first. An individual plan if suitable. Review with your doctor. The illustrations explain care topics; they are not patient scans or treatment results.</p></div></div>
+  <ol class="flow-three-steps">${steps.map(([title,text]) => `<li><h3>${esc(title)}</h3><p>${esc(text)}</p></li>`).join('')}</ol>
+  <details class="flow-more"><summary>Explore the health factors your doctor reviews</summary>${expanded[0]}</details>
+  <details class="flow-more"><summary>See traditional Kerala therapies and care-plan details</summary>${expanded[1]}</details>
+  <details class="flow-more"><summary>Read the full consultation-to-review journey</summary>${expanded[2]}</details>
+</div></section>
+<!-- KARMANYA CARE END -->`;
+}
+
 function questions(kind) {
   const knee = kind === 'knee';
   const part = knee ? 'knee' : 'spine';
   const procedure = knee ? 'Janu Basti' : 'Kati Basti';
-  return [
+  const items = [
     ['Can Ayurveda replace surgery?', 'A consultation can explore suitable care options, but Ayurveda cannot be promised to remove the need for surgery. If surgery has been advised, discuss that recommendation with your treating doctor or relevant specialist before changing the plan.'],
     ['How many sessions will I need?', 'Your doctor explains the proposed duration and review intervals after assessment. There is no single course or recovery time that suits everyone; the plan is reviewed according to your response.'],
     ['What happens during ' + procedure + '?', 'When prescribed, a ring of dough holds warm medicated oil over the ' + (knee ? 'knee' : 'lower back') + ' while a therapist monitors your comfort. Tell the therapist if the heat or procedure feels uncomfortable.'],
@@ -68,6 +89,7 @@ function questions(kind) {
     ['Do I need to book, or can I walk in?', 'Booking ahead helps the clinic confirm availability. Call or submit a consultation request; your appointment is confirmed when the clinic agrees a time with you.'],
     ['How will my progress be reviewed?', 'Your doctor reviews symptoms and everyday function against your starting point and discusses whether care should continue, change or stop. Any repeat imaging is guided by clinical need.'],
   ];
+  return [items[3], ['How is my appointment confirmed?', 'Send your request and visit preference. The clinic calls during opening hours, 10 AM to 8 PM, to confirm availability and agree an appointment time. No payment is taken online; the ₹500 consultation fee is paid at the clinic.'], items[5], items[6], items[1], items[2], items[4], items[0], items[8], items[7]];
 }
 
 function cleanClaims(html, kind) {
@@ -114,6 +136,7 @@ for (const [filename, kind] of [['index.html','knee'],['knee.html','knee'],['bac
   else html = html.replace(/<!-- FIRST VISIT -->[\s\S]*?(?=<!-- FIT -->)/, sections(kind) + '\n\n');
   if (!html.includes('href="/care-journey.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/care-journey.css?v=1">\n</head>');
   html = cleanClaims(html, kind);
+  html = renderFlow(html, kind);
   fs.writeFileSync(file, html);
   console.log('Rendered', filename);
 }

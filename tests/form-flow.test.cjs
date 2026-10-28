@@ -24,7 +24,7 @@ function harness(filename, send, isProd = true) {
   const tracking = html.match(/  function trackLead\(id, method\) \{[\s\S]*?\n  \}/)[0];
   let submit;
   const element = (value = '') => ({ value, hidden: true, disabled: false, textContent: '', innerHTML: '', setAttribute() {}, removeAttribute() {}, focus() {}, scrollIntoView() {} });
-  const els = Object.fromEntries(['leadForm', 'fullName', 'phone', 'nameError', 'phoneError', 'sendError', 'submitBtn', 'formWrap', 'doneWrap', 'doneTitle', 'donePhone', 'doneWa'].map(id => [id, element()]));
+  const els = Object.fromEntries(['leadForm', 'fullName', 'phone', 'nameError', 'phoneError', 'sendError', 'submitBtn', 'formWrap', 'doneWrap', 'doneTitle', 'donePhone', 'doneWa', 'donePreference'].map(id => [id, element()]));
   els.fullName.value = 'Example Test'; els.phone.value = '+91 90000 00000';
   els.formWrap.hidden = false;
   els.leadForm.addEventListener = (name, fn) => { submit = fn; };
@@ -34,7 +34,19 @@ function harness(filename, send, isProd = true) {
   const context = { window, FormData, Promise, Date, Math, Object, JSON, location: { origin: 'https://consult.karmanyaayurveda.com', pathname: '/' + filename }, document: { getElementById: id => els[id] },
     sel: { value: 'Flexible', selectedIndex: 0, options: [{ textContent: 'First available slot' }] }, symptomsField: { value: '' }, KA: { isProd, angle: 'default', params: {} }, C: { sendFormOutsideProduction: false, thankYouUrl: '', adsId: 'AW-18375933203', adsLeadLabel: '91coCMuK5uscEJP6qbpE', ga4Id: 'G-QWH0NSNLVE' }, leadTracked: {}, wa: text => 'https://wa.me/919819820017?text=' + encodeURIComponent(text), gtag: (...args) => calls.push(args), fbq() {} };
   vm.runInNewContext(tracking + '\n' + block, context);
-  return { html, els, calls, payloads, submit: () => submit({ preventDefault() {} }) };
+  return { html, els, calls, payloads, slot: context.sel, submit: () => submit({ preventDefault() {} }) };
+}
+
+for (const filename of ['index.html', 'knee.html', 'back.html']) {
+  test(filename + ': visit readiness reaches the clinic and confirmation without entering the Ads event', async () => {
+    const h = harness(filename, async () => ({ ok: true }));
+    h.slot.value = 'Within a week'; h.slot.options[0].textContent = 'This week';
+    h.submit(); await settle();
+    assert.equal(h.payloads[0].timeslot, 'Within a week');
+    assert.equal(h.els.donePreference.textContent, 'This week');
+    const conversion = h.calls.find(args => args[1] === 'conversion')[2];
+    assert.deepEqual(Object.keys(conversion).sort(), ['send_to', 'transaction_id']);
+  });
 }
 
 for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']) {
