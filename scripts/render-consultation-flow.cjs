@@ -22,7 +22,12 @@ function renderFlow(html, kind) {
   const knee = kind === 'knee';
   const part = knee ? 'knee' : 'back and spine';
   const formPart = knee ? 'knee' : 'spine';
-  const video = knee ? 'DNzYOICUJW7' : 'DFFbgpbt85n';
+  const videos = [
+    { id: 'DHFwJAGtggY', title: 'Hear from a patient', featured: true },
+    { id: 'DFFbgpbt85n', title: 'Another patient’s experience', featured: true },
+    { id: 'DNzYOICUJW7', title: 'A patient’s experience in Malayalam', featured: false },
+  ];
+  const videoCards = videos.map((video, index) => `<article class="flow-video-card${video.featured ? ' flow-video-featured' : ''}"><p class="flow-eyebrow">${video.featured ? 'Featured patient story' : 'Patient story · Malayalam'}</p><h3>${esc(video.title)}</h3><div class="flow-video-slot"><iframe src="https://www.instagram.com/reel/${video.id}/embed/" title="Patient testimonial ${index + 1}${video.featured ? '' : ' in Malayalam'}" width="320" height="540" loading="lazy" allow="encrypted-media; picture-in-picture"></iframe></div><p class="flow-video-note"><a href="https://www.instagram.com/reel/${video.id}/" target="_blank" rel="noopener">Watch on Instagram ↗</a></p></article>`).join('\n');
   let form = elementAt(html, html.indexOf('<div class="card-form" id="book">'), 'div');
   form = form.replace(/<p class="flow-form-note">[\s\S]*?<\/p>/g, '')
     .replace(/<p class="flow-preference">[\s\S]*?<\/p>/g, '')
@@ -73,9 +78,12 @@ function renderFlow(html, kind) {
 </section>
 
 <section class="section paper flow-proof" aria-labelledby="flow-proof-title">
-  <div class="wrap flow-proof-grid">
-    <div><p class="flow-eyebrow">Know where you are visiting</p><h2 id="flow-proof-title">Care starts with a conversation.</h2><p>Meet our expert doctor in person, discuss your concerns and understand the proposed care before deciding to continue.</p><address>27/11, Swaraj Garden Road,<br>near One Nation Apartment, Pimple Saudagar.</address><p><a href="https://maps.google.com/?cid=3077549578320836260" target="_blank" rel="noopener">Read patient reviews on Google ↗</a></p></div>
-    <div class="flow-video-card"><p class="flow-eyebrow">A patient’s own experience</p><h3>A ${knee ? 'knee-care' : 'spine-care'} video story</h3><div class="flow-video-slot"><button type="button" class="flow-video-button" data-video-id="${video}" aria-label="Play the ${knee ? 'knee-care' : 'spine-care'} patient video on Instagram"><span aria-hidden="true">▶</span>Watch the patient video<small>Loads Instagram only when you play</small></button></div><p class="flow-video-note">An individual experience, not a promise of your result. <a href="https://www.instagram.com/reel/${video}/" target="_blank" rel="noopener">Open on Instagram ↗</a></p></div>
+  <div class="wrap">
+    <div class="flow-proof-grid">
+      <div><p class="flow-eyebrow">Know where you are visiting</p><h2 id="flow-proof-title">Care starts with a conversation.</h2><p>Meet our expert doctor in person, discuss your concerns and understand the proposed care before deciding to continue.</p></div>
+      <div><address>27/11, Swaraj Garden Road,<br>near One Nation Apartment, Pimple Saudagar.</address><p><a href="https://maps.google.com/?cid=3077549578320836260" target="_blank" rel="noopener">Read patient reviews on Google ↗</a></p></div>
+    </div>
+    <div class="flow-testimonials" aria-labelledby="flow-stories-title"><p class="flow-eyebrow">Patient experiences</p><h2 id="flow-stories-title">Hear from our patients.</h2><p class="flow-stories-intro">These patients share their own experiences with Karmanya Ayurveda. Individual experiences are not a promise of your result.</p><div class="flow-video-grid">${videoCards}</div></div>
   </div>
 </section>
 
@@ -115,8 +123,9 @@ ${visit}
     .replace(/Preferred time:/g, 'Visit preference:')
     .replace(/<nav class="sticky" id="sticky"[\s\S]*?<\/nav>/, '<nav class="sticky" id="sticky" aria-label="Quick contact"><a class="btn btn-outline" href="tel:+919819820017" data-loc="sticky" aria-label="Call the clinic"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></a><a class="btn btn-primary" href="#book">₹500 consultation</a><a class="btn btn-outline" data-wa data-loc="sticky" href="https://wa.me/919819820017">WhatsApp</a></nav>');
   if (!html.includes('var preferenceEl =')) html = html.replace(/(document\.getElementById\('donePhone'\)\.textContent = [^\n]+;)/, "$1\n        var preferenceEl = document.getElementById('donePreference');\n        if (preferenceEl) preferenceEl.textContent = slotLabel;");
+  html = html.replace('/landing-flow.css?v=1', '/landing-flow.css?v=2');
   // Eventual source rerenders keep the approved flow and anonymous conversion path.
-  if (!html.includes('href="/landing-flow.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/landing-flow.css?v=1">\n</head>');
+  if (!html.includes('href="/landing-flow.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/landing-flow.css?v=2">\n</head>');
   if (!html.includes('src="/consultation-flow.js')) html = html.replace('</body>', '<script src="/consultation-flow.js" defer></script>\n</body>');
   return html;
 }
