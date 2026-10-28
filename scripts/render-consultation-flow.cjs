@@ -20,8 +20,18 @@ function sectionAfter(html, marker) {
 
 function renderFlow(html, kind) {
   const knee = kind === 'knee';
-  const part = knee ? 'knee' : 'back and spine';
-  const formPart = knee ? 'knee' : 'spine';
+  const cervical = kind === 'cervical';
+  const part = knee ? 'knee' : (cervical ? 'neck and cervical spine' : 'back and spine');
+  const formPart = knee ? 'knee' : (cervical ? 'neck' : 'spine');
+  const checkId = knee ? 'knee-check' : (cervical ? 'cervical-check' : 'spine-check');
+  const heroTitle = knee
+    ? 'Ayurvedic knee-pain care in Pimple Saudagar'
+    : (cervical ? 'Ayurvedic neck & cervical care in Pimple Saudagar' : 'Ayurvedic back-pain & sciatica care');
+  const sub = knee
+    ? 'Discuss knee pain, stiffness or difficulty walking with our expert doctor. Authentic Kerala Ayurveda therapies are considered after your assessment.'
+    : (cervical
+      ? 'Discuss neck pain, cervical stiffness, numbness in arms, and desk strain with our expert doctor. Authentic Kerala Ayurveda therapies are considered after your assessment.'
+      : 'Discuss back pain, sciatica or difficulty sitting and walking with our expert doctor. Authentic Kerala Ayurveda therapies are considered after your assessment.');
   const videos = [
     { id: 'DHFwJAGtggY', title: 'Hear from a patient', featured: true },
     { id: 'DFFbgpbt85n', title: 'Another patient’s experience', featured: true },
@@ -42,22 +52,18 @@ function renderFlow(html, kind) {
     .replace(/<p class="form-foot">[\s\S]*?<\/p>/, '<p class="form-foot">No payment online. Your number is used to arrange your visit. Questions first? <a data-wa data-loc="form" href="https://wa.me/919819820017">Ask on WhatsApp</a>.</p>')
     .replace(/(<h2 id="doneTitle">[\s\S]*?<\/h2>)\s*(<p>[\s\S]*?<\/p>)/, '$1<p>The clinic will call you on <strong id="donePhone"></strong> during opening hours. Your appointment is confirmed when the clinic agrees a time with you.</p><p class="flow-preference">Visit preference: <strong id="donePreference">To be discussed</strong></p><p><a href="https://maps.google.com/?cid=3077549578320836260" target="_blank" rel="noopener">Directions to the Pimple Saudagar clinic</a></p>')
     .replace('Get a faster confirmation on WhatsApp', 'Optional: ask the clinic on WhatsApp');
-  const checkId = knee ? 'knee-check' : 'spine-check';
   const check = elementAt(html, html.indexOf(`<section class="section paper" id="${checkId}">`), 'section');
   const fit = sectionAfter(html, '<!-- FIT -->');
   const faq = sectionAfter(html, '<!-- FAQ -->');
   const care = html.match(/<!-- KARMANYA CARE START -->[\s\S]*?<!-- KARMANYA CARE END -->/)[0];
   const visit = sectionAfter(html, '<!-- VISIT -->');
-  const sub = knee
-    ? 'Discuss knee pain, stiffness or difficulty walking with our expert doctor. Authentic Kerala Ayurveda therapies are considered after your assessment.'
-    : 'Discuss back pain, sciatica or difficulty sitting and walking with our expert doctor. Authentic Kerala Ayurveda therapies are considered after your assessment.';
   const main = `<main id="top">
 <!-- CONSULTATION FLOW START -->
 <section class="hero flow-hero">
   <div class="wrap flow-hero-grid">
     <div class="hero-copy">
       <p class="kicker">In-clinic care · Pimple Saudagar, Pune</p>
-      <h1 id="heroTitle">${knee ? 'Ayurvedic knee-pain care in Pimple Saudagar' : 'Ayurvedic back-pain & sciatica care'}</h1>
+      <h1 id="heroTitle">${heroTitle}</h1>
       <p class="sub" id="heroSub">${esc(sub)}</p>
       <script>(function(){var a=window.KA_ANGLES[window.KA.angle];if(window.KA.angle!=='default'){document.getElementById('heroTitle').textContent=a.title;document.getElementById('heroSub').textContent=a.sub;}})();</script>
       <p class="flow-fee"><strong>₹500 in-clinic consultation</strong><span>About 45 minutes · Pay at the clinic</span></p>

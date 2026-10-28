@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const script = fs.readFileSync(require('node:path').join(__dirname, '..', 'consultation-flow.js'), 'utf8');
 
-for (const filename of ['index.html', 'knee.html', 'back.html']) {
+for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']) {
   test(filename + ': all three original testimonials are visible in order, with Malayalam last and no autoplay', () => {
     const html = fs.readFileSync(require('node:path').join(__dirname, '..', filename), 'utf8');
     const section = html.match(/<div class="flow-testimonials"[\s\S]*?(?=<!-- FIT -->)/)[0];

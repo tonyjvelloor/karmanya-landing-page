@@ -175,5 +175,80 @@
       }
     ],
     "imagingText": "MRI or X-ray is not routinely needed for every episode of back pain or sciatica. Your doctor will explain whether imaging could change the care plan or whether specialist assessment is needed. If advised, you can use a reliable independent diagnostic centre. Follow-up is based on clinical need, symptoms and function, not a fixed repeat-scan date."
+  },
+  "cervical": {
+    "title": "Understand the whole picture behind neck & cervical pain.",
+    "intro": "Neck pain, cervical stiffness and radiating arm discomfort need an individual assessment. Your doctor reviews the cervical spine, posture and daily habits alongside digestion, lifestyle and wider health before discussing authentic Kerala Ayurveda therapies.",
+    "anatomyAlt": "Conceptual illustration of cervical vertebrae, intervertebral discs and nerve roots",
+    "planTitle": "A cervical-care plan rooted in Kerala Ayurveda",
+    "planIntro": "Authentic Kerala Ayurveda therapies are selected after assessment. The plan brings together traditional practice, an examination of your posture and daily habits, and practical goals for everyday comfort.",
+    "plan": [
+      {
+        "title": "Review digestion & metabolism",
+        "text": "Your Ayurvedic consultation includes discussion of Agni, appetite and digestion, alongside your medical history."
+      },
+      {
+        "title": "Understand posture, screen time & daily habits",
+        "text": "Desk ergonomics, screen use, sleep posture, activity and existing medicines help your doctor understand the context of your symptoms."
+      },
+      {
+        "title": "Personalise food & routine guidance",
+        "text": "Food and daily-routine advice may be offered when appropriate to your assessment and overall health."
+      },
+      {
+        "title": "Review symptoms & relevant reports",
+        "text": "Your symptoms, physical examination and any existing MRI or X-ray reports guide whether further investigation or specialist referral is needed."
+      },
+      {
+        "title": "Support appropriate neck & shoulder mobility",
+        "text": "Discuss posture correction, comfortable movement and ergonomic adjustments tailored to your clinical needs."
+      },
+      {
+        "title": "Select authentic Kerala Ayurveda therapies",
+        "text": "If suitable, your doctor may prescribe Greeva Basti, Patra Pinda Sweda, Lepam, Pichu or other classical therapies, with medicines only when indicated."
+      }
+    ],
+    "therapyImage": "https://karmanyaayurveda.com/images/protocols/protocol-cervical-neck.webp",
+    "therapyAlt": "Greeva Basti procedure with warm medicated oil held over the cervical spine in a dough ring",
+    "therapyCaption": "Greeva Basti is a traditional external Ayurvedic procedure. Suitability is assessed by your doctor.",
+    "therapyTitle": "Authentic Kerala Ayurveda for individual care.",
+    "therapies": [
+      "Greeva Basti: warm medicated oil held over the back of the neck in a dough ring.",
+      "Patra Pinda Sweda: a traditional fomentation procedure using prepared herbal-leaf bundles.",
+      "Lepam or Pichu: prescribed medicated-oil pads or external herbal applications."
+    ],
+    "journeyTitle": "Your Karmanya cervical-care journey",
+    "journeyIntro": "Understand each stage of care, from assessment to review, with realistic goals and a plan tailored to you.",
+    "journey": [
+      {
+        "title": "Book your assessment",
+        "text": "Request a ₹500, in-clinic consultation at Pimple Saudagar. The clinic confirms a suitable appointment time."
+      },
+      {
+        "title": "Meet your doctor",
+        "text": "Describe your neck, shoulder or radiating arm symptoms, daily activities and current medicines. The doctor examines you before discussing care."
+      },
+      {
+        "title": "Establish a clinical baseline",
+        "text": "Record pain, range of motion, desk tolerance and daily limitations. Bring existing MRI or X-ray reports; further imaging is considered only if it could guide care."
+      },
+      {
+        "title": "Discuss options & suitability",
+        "text": "Your doctor explains the proposed plan, fees and review points, including whether a spine specialist or neurologist should be involved."
+      },
+      {
+        "title": "Begin prescribed Kerala Ayurveda therapy",
+        "text": "Receive the authentic Kerala Ayurveda therapies selected for you, with trained therapists and doctor supervision. Medicines and routine advice are individualised."
+      },
+      {
+        "title": "Review symptoms & everyday function",
+        "text": "Discuss comfort, neck mobility and screen tolerance at doctor-advised intervals. New or worsening symptoms need reassessment; scans are repeated only when clinically useful."
+      },
+      {
+        "title": "Plan continued care or referral",
+        "text": "Your doctor reviews whether care should continue, change or stop. You may review your reports and options with your family physician or specialist."
+      }
+    ],
+    "imagingText": "MRI or X-ray is not routinely needed for every episode of neck stiffness or strain. Your doctor will explain whether imaging could change the care plan or whether specialist assessment is needed. If advised, you can use a reliable independent diagnostic centre. Follow-up is based on clinical need, symptoms and function, not a fixed repeat-scan date."
   }
 }

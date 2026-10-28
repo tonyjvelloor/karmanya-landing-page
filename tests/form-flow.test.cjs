@@ -37,7 +37,7 @@ function harness(filename, send, isProd = true) {
   return { html, els, calls, payloads, slot: context.sel, submit: () => submit({ preventDefault() {} }) };
 }
 
-for (const filename of ['index.html', 'knee.html', 'back.html']) {
+for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']) {
   test(filename + ': visit readiness reaches the clinic and confirmation without entering the Ads event', async () => {
     const h = harness(filename, async () => ({ ok: true }));
     h.slot.value = 'Within a week'; h.slot.options[0].textContent = 'This week';

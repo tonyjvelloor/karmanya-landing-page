@@ -76,12 +76,14 @@ function sections(kind) {
 
 function questions(kind) {
   const knee = kind === 'knee';
-  const part = knee ? 'knee' : 'spine';
-  const procedure = knee ? 'Janu Basti' : 'Kati Basti';
+  const cervical = kind === 'cervical';
+  const part = knee ? 'knee' : (cervical ? 'neck' : 'spine');
+  const procedure = knee ? 'Janu Basti' : (cervical ? 'Greeva Basti' : 'Kati Basti');
+  const location = knee ? 'knee' : (cervical ? 'back of the neck' : 'lower back');
   const items = [
     ['Can Ayurveda replace surgery?', 'A consultation can explore suitable care options, but Ayurveda cannot be promised to remove the need for surgery. If surgery has been advised, discuss that recommendation with your treating doctor or relevant specialist before changing the plan.'],
     ['How many sessions will I need?', 'Your doctor explains the proposed duration and review intervals after assessment. There is no single course or recovery time that suits everyone; the plan is reviewed according to your response.'],
-    ['What happens during ' + procedure + '?', 'When prescribed, a ring of dough holds warm medicated oil over the ' + (knee ? 'knee' : 'lower back') + ' while a therapist monitors your comfort. Tell the therapist if the heat or procedure feels uncomfortable.'],
+    ['What happens during ' + procedure + '?', 'When prescribed, a ring of dough holds warm medicated oil over the ' + location + ' while a therapist monitors your comfort. Tell the therapist if the heat or procedure feels uncomfortable.'],
     ['What does it cost?', 'The in-clinic assessment is ₹500 for about 45 minutes. Any proposed therapy or medicine costs are explained separately before you decide to begin.'],
     ['Can I keep taking my current medicines?', 'Bring a list of all medicines and supplements you take. Your doctor reviews the plan in that context. Do not stop or change prescribed medicines on your own.'],
     ['What should I bring to the first visit?', 'Bring any existing X-ray or MRI reports of your ' + part + ', a list of your medicines and comfortable clothing. New imaging is considered only when clinically useful.'],
@@ -94,16 +96,17 @@ function questions(kind) {
 
 function cleanClaims(html, kind) {
   const knee = kind === 'knee';
-  const condition = knee ? 'knee' : 'back and spine';
-  const defaultWa = `Namaste! I would like to book a ${knee ? 'knee' : 'spine'} assessment at Karmanya Ayurveda, Pimple Saudagar. Please share an available slot.`;
+  const cervical = kind === 'cervical';
+  const condition = knee ? 'knee' : (cervical ? 'neck and cervical spine' : 'back and spine');
+  const defaultWa = `Namaste! I would like to book a ${knee ? 'knee' : (cervical ? 'cervical' : 'spine')} assessment at Karmanya Ayurveda, Pimple Saudagar. Please share an available slot.`;
   const angles = {
-    default: { title: knee ? 'Ayurvedic Knee Pain Care in Pimple Saudagar' : 'Ayurvedic Back Pain & Sciatica Care', sub: `Doctor-led ${condition} care using authentic Kerala Ayurveda therapies, selected after an individual assessment in Pimple Saudagar.`, wa: defaultWa },
-    surgery: { title: `Understand your ${knee ? 'knee' : 'spine'} care options`, sub: 'Bring your existing reports and treatment recommendations. Our expert doctor assesses suitability and explains when specialist advice is needed.', wa: defaultWa },
-    parent: { title: `Ayurvedic ${knee ? 'knee' : 'spine'} care for your parent`, sub: 'Book an in-person assessment to discuss symptoms, daily limitations and appropriate authentic Kerala Ayurveda therapies.', wa: defaultWa, forWhom: 'Parent' },
-    tried: { title: `A doctor-led review of persistent ${knee ? 'knee' : 'back'} pain`, sub: 'Discuss your symptoms, earlier care and daily goals before deciding on a personalised plan rooted in classical Kerala Ayurveda.', wa: defaultWa },
+    default: { title: knee ? 'Ayurvedic Knee Pain Care in Pimple Saudagar' : (cervical ? 'Ayurvedic Neck & Cervical Care in Pimple Saudagar' : 'Ayurvedic Back Pain & Sciatica Care'), sub: `Doctor-led ${condition} care using authentic Kerala Ayurveda therapies, selected after an individual assessment in Pimple Saudagar.`, wa: defaultWa },
+    surgery: { title: `Understand your ${cervical ? 'neck' : (knee ? 'knee' : 'spine')} care options`, sub: 'Bring your existing reports and treatment recommendations. Our expert doctor assesses suitability and explains when specialist advice is needed.', wa: defaultWa },
+    parent: { title: `Ayurvedic ${cervical ? 'neck' : (knee ? 'knee' : 'spine')} care for your parent`, sub: 'Book an in-person assessment to discuss symptoms, daily limitations and appropriate authentic Kerala Ayurveda therapies.', wa: defaultWa, forWhom: 'Parent' },
+    tried: { title: `A doctor-led review of persistent ${cervical ? 'neck' : (knee ? 'knee' : 'back')} pain`, sub: 'Discuss your symptoms, earlier care and daily goals before deciding on a personalised plan rooted in classical Kerala Ayurveda.', wa: defaultWa },
   };
   html = html.replace(/window\.KA_ANGLES = \{[\s\S]*?\n\};/, 'window.KA_ANGLES = ' + JSON.stringify(angles, null, 2) + ';');
-  html = html.replace(/<title>[^<]*<\/title>/, `<title>${knee ? 'Knee Care' : 'Back Pain & Sciatica Care'} with Authentic Kerala Ayurveda | Pimple Saudagar</title>`);
+  html = html.replace(/<title>[^<]*<\/title>/, `<title>${cervical ? 'Neck & Cervical Care' : (knee ? 'Knee Care' : 'Back Pain & Sciatica Care')} with Authentic Kerala Ayurveda | Pimple Saudagar</title>`);
   html = html.replace(/(<p class="sub" id="heroSub">)[\s\S]*?(<\/p>)/, '$1' + esc(angles.default.sub) + '$2');
   html = html.replace(/<ul class="proof">[\s\S]*?<\/ul>/, '<ul class="proof"><li><span>Assessment by <strong>our expert doctor</strong></span></li><li><span><strong>Authentic Kerala Ayurveda</strong> therapies</span></li><li><span>Open <strong>all 7 days</strong></span></li></ul>');
   html = html.replace(/<p class="offer">[\s\S]*?<\/p>/, '<p class="offer"><strong>₹500 in-clinic assessment</strong>, about 45 minutes. Discuss your symptoms and appropriate care with our expert doctor. Or call <a href="tel:+919819820017" data-loc="hero_text">+91 98198 20017</a>.</p>');
@@ -129,7 +132,7 @@ function cleanClaims(html, kind) {
   return html;
 }
 
-for (const [filename, kind] of [['index.html','knee'],['knee.html','knee'],['back.html','spine']]) {
+for (const [filename, kind] of [['index.html','knee'],['knee.html','knee'],['back.html','spine'],['cervical.html','cervical']]) {
   const file = path.join(root, filename);
   let html = fs.readFileSync(file, 'utf8');
   if (html.includes('<!-- KARMANYA CARE START -->')) html = html.replace(/<!-- KARMANYA CARE START -->[\s\S]*?<!-- KARMANYA CARE END -->/, sections(kind));
