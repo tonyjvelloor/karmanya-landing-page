@@ -7,7 +7,8 @@ const script = fs.readFileSync(require('node:path').join(__dirname, '..', 'consu
 for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']) {
   test(filename + ': all three original testimonials are visible in order, with Malayalam last and no autoplay', () => {
     const html = fs.readFileSync(require('node:path').join(__dirname, '..', filename), 'utf8');
-    const section = html.match(/<div class="flow-testimonials"[\s\S]*?(?=<!-- FIT -->)/)[0];
+    const start = html.indexOf('<div class="flow-testimonials"');
+    const section = html.slice(start, html.indexOf('</section>', start));
     const frames = [...section.matchAll(/<iframe\b[^>]+>/g)].map(m => m[0]);
     assert.equal(frames.length, 3);
     for (const [index, id] of ['DHFwJAGtggY', 'DFFbgpbt85n', 'DNzYOICUJW7'].entries()) {

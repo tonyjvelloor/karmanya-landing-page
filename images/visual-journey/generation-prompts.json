@@ -1,0 +1,15 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-10-28",
+  "purpose": "Clearly labelled editorial lifestyle illustrations, not actual patients or treatment outcomes",
+  "prompts": [
+    {
+      "key": "knee-hero",
+      "prompt": "Use case: illustration-story. Asset type: portrait hero illustration for Karmanya Ayurveda's knee-pain consultation landing page, used beside a headline, 4:5 vertical composition. Create an elegant editorial illustration of a relatable Indian woman about 55 years old, in a simple muted coral kurta and slate-blue trousers, seated upright on a stable light-wood chair in a minimal warm ivory home. Her feet are planted naturally on the floor and one hand gently rests on her knee; calm thoughtful expression, slight everyday discomfort, dignified and approachable. Full seated figure clearly visible with generous breathing room around head, hands and feet. Hand-painted soft gouache texture, refined natural proportions, subtle dimensional shading, restrained coral, amber, slate-blue and cream palette; no dominant green. Very simple pale ivory backdrop with one soft curved amber shape, no detailed room, no hard frame. Looks clearly illustrated, not a photograph. No pain glow, no arrows, no anatomy overlays, no labels or text, no logos, no watermark, no doctor, no clinic, no before/after or promised outcome."
+    },
+    {
+      "key": "back-hero",
+      "prompt": "Use case: illustration-story. Asset type: portrait hero illustration for Karmanya Ayurveda's back-pain consultation landing page, used beside a headline, 4:5 vertical composition. Create an elegant editorial illustration of a relatable Indian man about 40 years old, wearing a muted slate-blue shirt and warm stone trousers, standing naturally beside a simple light-wood desk with a closed laptop. One hand rests gently at his lower back as he pauses after sitting; calm thoughtful expression, slight everyday discomfort, dignified and approachable. Full figure clearly visible with generous breathing room around head, hands and feet. Hand-painted soft gouache texture, refined natural proportions, subtle dimensional shading, restrained coral, amber, slate-blue and cream palette; no dominant green. Very simple pale ivory backdrop with one soft curved coral shape, no detailed office, no hard frame. Looks clearly illustrated, not a photograph. No pain glow, no arrows, no anatomy overlays, no labels or text, no logos, no watermark, no doctor, no clinic, no before/after or promised outcome."
+    }
+  ]
+}

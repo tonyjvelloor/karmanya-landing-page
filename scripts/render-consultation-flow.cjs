@@ -1,3 +1,4 @@
+const { renderVisualFlow } = require('./visual-journey.cjs');
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 function elementAt(html, start, tag) {
@@ -133,7 +134,7 @@ ${visit}
   // Eventual source rerenders keep the approved flow and anonymous conversion path.
   if (!html.includes('href="/landing-flow.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/landing-flow.css?v=2">\n</head>');
   if (!html.includes('src="/consultation-flow.js')) html = html.replace('</body>', '<script src="/consultation-flow.js" defer></script>\n</body>');
-  return html;
+  return (kind === 'knee' || kind === 'spine') ? renderVisualFlow(html, kind) : html;
 }
 
 module.exports = { renderFlow };
