@@ -143,8 +143,10 @@ window.KA_ANGLES = {
     }
     if (C.metaPixelId) {
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      // Explicit events own measurement; disable automatic button/form collection.
+      fbq('set', 'autoConfig', false, C.metaPixelId);
       fbq('init', C.metaPixelId);
-      fbq('track', 'PageView');
+      fbq('trackSingle', C.metaPixelId, 'PageView');
     }
   } else {
     window.gtag = function () { console.info('[preview] gtag', Array.prototype.slice.call(arguments)); };
@@ -830,11 +832,15 @@ footer a{color:var(--muted)}
 
   /* ---------- Tracking helpers ---------- */
   function trackContact(channel, loc) {
-    fbq('track', 'Contact', { channel: channel });
-    if (typeof window.oaiq === 'function') window.oaiq('measure', 'contact', { channel: channel });
-    gtag('event', channel === 'whatsapp' ? 'whatsapp_click' : 'call_click', { send_to: C.ga4Id, link_location: loc });
-    var label = channel === 'whatsapp' ? C.adsWhatsappLabel : C.adsCallLabel;
-    if (label) gtag('event', 'conversion', { send_to: C.adsId + '/' + label });
+    if (!KA.isProd) return;
+    // A tap is contact intent, not a received enquiry or a completed phone call.
+    var isWhatsapp = channel.indexOf('whatsapp') === 0;
+    var contactChannel = isWhatsapp ? 'whatsapp' : 'call';
+    try { fbq('trackSingle', C.metaPixelId, 'Contact', { channel: contactChannel }); } catch (_) {}
+    try { if (typeof window.oaiq === 'function') window.oaiq('measure', 'contact', { channel: contactChannel }); } catch (_) {}
+    try { gtag('event', isWhatsapp ? 'whatsapp_click' : 'call_click', { send_to: C.ga4Id, link_location: loc }); } catch (_) {}
+    var label = isWhatsapp ? C.adsWhatsappLabel : C.adsCallLabel;
+    try { if (label) gtag('event', 'conversion', { send_to: C.adsId + '/' + label }); } catch (_) {}
   }
   var leadTracked = {};
   function trackLead(id, method) {
@@ -843,7 +849,7 @@ footer a{color:var(--muted)}
     // One verified form action; no name, phone, symptoms or condition in analytics.
     try { gtag('event', 'conversion', { send_to: C.adsId + '/' + C.adsLeadLabel, transaction_id: id }); } catch (_) {}
     try { gtag('event', 'generate_lead', { send_to: C.ga4Id, method: method }); } catch (_) {}
-    try { fbq('track', 'Lead', {}, { eventID: id }); } catch (_) {}
+    try { fbq('trackSingle', C.metaPixelId, 'Lead', {}, { eventID: id }); } catch (_) {}
     try { if (typeof window.oaiq === 'function') window.oaiq('measure', 'lead_created', {}, { event_id: id }); } catch (_) {}
   }
 
@@ -852,7 +858,7 @@ footer a{color:var(--muted)}
     if (!a) return;
     var href = a.getAttribute('href');
     var loc = a.getAttribute('data-loc') || 'page';
-    if (href.indexOf('wa.me/') > -1) trackContact('whatsapp', loc);
+    if (/^https:\/\/(?:wa\.me\/|api\.whatsapp\.com\/send)/i.test(href)) trackContact('whatsapp', loc);
     else if (href.indexOf('tel:') === 0) trackContact('call', loc);
   });
 

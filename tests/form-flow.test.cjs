@@ -29,12 +29,12 @@ function harness(filename, send, isProd = true) {
   els.formWrap.hidden = false;
   els.leadForm.addEventListener = (name, fn) => { submit = fn; };
   els.leadForm.querySelector = selector => ({ value: selector === '[name=website]' ? '' : 'Self' });
-  const calls = [], payloads = [];
+  const calls = [], payloads = [], metaCalls = [];
   const window = { KarmanyaBooking: { newLeadId: () => 'consult-00000000-0000-4000-8000-000000000001', send: payload => { payloads.push(payload); return send(payload); } } };
   const context = { window, FormData, Promise, Date, Math, Object, JSON, location: { origin: 'https://consult.karmanyaayurveda.com', pathname: '/' + filename }, document: { getElementById: id => els[id] },
-    sel: { value: 'Flexible', selectedIndex: 0, options: [{ textContent: 'First available slot' }] }, symptomsField: { value: '' }, KA: { isProd, angle: 'default', params: {} }, C: { sendFormOutsideProduction: false, thankYouUrl: '', adsId: 'AW-18375933203', adsLeadLabel: '91coCMuK5uscEJP6qbpE', ga4Id: 'G-QWH0NSNLVE' }, leadTracked: {}, wa: text => 'https://wa.me/919819820017?text=' + encodeURIComponent(text), gtag: (...args) => calls.push(args), fbq() {} };
+    sel: { value: 'Flexible', selectedIndex: 0, options: [{ textContent: 'First available slot' }] }, symptomsField: { value: '' }, KA: { isProd, angle: 'default', params: {} }, C: { sendFormOutsideProduction: false, thankYouUrl: '', adsId: 'AW-18375933203', adsLeadLabel: '91coCMuK5uscEJP6qbpE', ga4Id: 'G-QWH0NSNLVE', metaPixelId: '2147354382501419' }, leadTracked: {}, wa: text => 'https://wa.me/919819820017?text=' + encodeURIComponent(text), gtag: (...args) => calls.push(args), fbq: (...args) => metaCalls.push(args) };
   vm.runInNewContext(tracking + '\n' + block, context);
-  return { html, els, calls, payloads, slot: context.sel, submit: () => submit({ preventDefault() {} }) };
+  return { html, els, calls, metaCalls, payloads, slot: context.sel, submit: () => submit({ preventDefault() {} }) };
 }
 
 for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']) {
@@ -56,12 +56,14 @@ for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']
     h.submit(); h.submit();
     assert.equal(h.payloads.length, 1);
     assert.match(h.payloads[0].lead_id, /^consult-/);
-    assert.equal(h.calls.length, 0);
+    assert.equal(h.calls.length, 0); assert.equal(h.metaCalls.length, 0);
     assert.equal(h.els.doneWrap.hidden, true);
     acknowledge({ ok: true }); await settle();
     assert.equal(h.els.doneWrap.hidden, false);
     const conversions = h.calls.filter(args => args[1] === 'conversion');
     assert.equal(conversions.length, 1);
+    assert.equal(h.metaCalls.length, 1);
+    assert.deepEqual(JSON.parse(JSON.stringify(h.metaCalls[0])), ['trackSingle', '2147354382501419', 'Lead', {}, { eventID: h.payloads[0].lead_id }]);
     assert.deepEqual(Object.keys(conversions[0][2]).sort(), ['send_to', 'transaction_id']);
     assert.equal(h.html.includes('data-lead-id='), false);
     assert.equal(h.html.includes("mode: 'no-cors'"), false);
@@ -70,7 +72,7 @@ for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']
   test(filename + ': failed requests remain retryable with the same ID and no primary conversion', async () => {
     const h = harness(filename, async () => { throw new Error('unconfirmed'); });
     h.submit(); await settle();
-    assert.equal(h.calls.length, 0);
+    assert.equal(h.calls.length, 0); assert.equal(h.metaCalls.length, 0);
     assert.equal(h.els.doneWrap.hidden, true);
     assert.equal(h.els.submitBtn.disabled, false);
     assert.equal(h.els.sendError.hidden, false);
@@ -80,8 +82,8 @@ for (const filename of ['index.html', 'knee.html', 'back.html', 'cervical.html']
   test(filename + ': preview and invalid forms never submit or count a lead', async () => {
     const h = harness(filename, async () => { throw new Error('must not send'); }, false);
     h.submit(); await settle();
-    assert.equal(h.payloads.length, 0); assert.equal(h.calls.length, 0);
+    assert.equal(h.payloads.length, 0); assert.equal(h.calls.length, 0); assert.equal(h.metaCalls.length, 0);
     h.els.phone.value = '123'; h.submit(); await settle();
-    assert.equal(h.payloads.length, 0); assert.equal(h.calls.length, 0);
+    assert.equal(h.payloads.length, 0); assert.equal(h.calls.length, 0); assert.equal(h.metaCalls.length, 0);
   });
 }
